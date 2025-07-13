@@ -1,0 +1,64 @@
+:root{
+    --main-color: rgb(223, 97, 255);
+    --secondary-color: rgb(92, 90 , 92);
+    --text-color:rgb(255, 255, 255);
+}
+
+.container {
+    margin:-1em;
+    padding:0;
+    position: inherit;
+    width:100vw;
+    height:100vh;
+    display: block;
+    color:var(--text-color);
+
+}
+
+.circle{
+    margin:0;
+    padding:0;
+    background-color: var(--main-color);
+    border-radius:50% 50% 0 0 ;
+    position:absolute;
+    width:100%;
+    height:30vw;
+    left:0;
+    bottom: 0;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content:top;
+    text-align: center;
+    align-items: center;
+}
+
+.btn{
+    background-color: var(--text-color);
+    width:fit-content;
+    height:fit-content;
+    padding:1em;
+    text-align: center;
+    border: none;
+    border-radius:1em;
+}
+
+.myText{
+    width:70%;
+    font-size: 1.5em;
+}
+
+.headerTitle{
+    position: relative;
+    margin-top: 3em;
+}
+
+.btn{
+    margin-top:0.5em;
+    padding:0.5em 1em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    width:fit-content;
+    text-align: center;
+    justify-content: center;
+}
