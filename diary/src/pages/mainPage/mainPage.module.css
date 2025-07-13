@@ -1,0 +1,22 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.userMessages {
+  width: 90vw;
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 80%;
+  border: none;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  gap: 2vw;
+  padding: 2vw;
+  margin-bottom:6em;
+}
