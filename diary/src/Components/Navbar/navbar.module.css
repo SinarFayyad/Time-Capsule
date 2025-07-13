@@ -1,0 +1,46 @@
+:root{
+    --main-color: rgb(223, 97, 255);
+    --secondary-color: rgb(92, 90 , 92);
+    --text-color:rgb(255, 255, 255);
+}
+
+.Navbar{
+    background-color: var(--main-color);
+    margin:0;
+    padding:0;
+    position:absolute;
+    height:4em;
+    left:0;
+    top:0; 
+    width:100vw;
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    font-family:inter;
+}
+
+.logo {
+    position: absolute;
+    top:-1.2em;
+    left:0;
+    height:5em;
+    width:5em;
+    font-size: 24px;
+    display: block;
+
+}
+
+.title {
+    color:var(--text-color);
+    text-align: center;
+}
+
+.links {
+    color:var(--text-color);
+    display: flex;
+    gap:1em;
+    padding:1em;
+    position: absolute;
+    right:1em;
+}
