@@ -8,7 +8,7 @@ const Navbar = () => {
     const location = useLocation();
 
     return (
-        <div className={styles.Navbar}>
+        <div className={`${styles.Navbar} main-color text-color`}>
             <div >
                 <img src={logo} alt="logo" className={styles.logo} />
             </div>

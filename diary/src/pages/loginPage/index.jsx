@@ -22,7 +22,7 @@ const LoginPage = () => {
                         <label>Password</label>
                     </div>
                     <input type='password' placeholder='********'></input>
-                    <a>Forget password</a>jsx
+                    <a>Forget password</a>
 
                     <Button name="/mainPage" title="Login" />
                 </div>

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import styles from './userMessage.module.css';
+=======
+import styles from './style.module.css';
+>>>>>>> Stashed changes
 
 const UserMessage = ({ username, message }) => {
     return (

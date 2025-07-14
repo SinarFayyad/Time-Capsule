@@ -1,12 +1,12 @@
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom';
 
-const Button = ({path ='/', title }) => {
+const Button = ({path ='/', title , className}) => {
 
     const navigate = useNavigate();
     return (
-        <button onClick={() => { navigate({path}) }} className={styles.btn}>{title}</button>
+        <button onClick={() => { navigate(path) }} className={`${styles.btn} ${className}`}>{title}</button>
+
     );
 }
-
 export default Button

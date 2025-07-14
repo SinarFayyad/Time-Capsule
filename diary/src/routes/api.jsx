@@ -1,4 +1,3 @@
-
 import LandingPage from '../pages/landingPage/index';
 import MainPage from '../pages/mainPage/index'
 import LoginPage from '../pages/loginPage/index'

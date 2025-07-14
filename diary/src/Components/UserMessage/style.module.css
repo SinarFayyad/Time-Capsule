@@ -1,7 +1,6 @@
 .userMessage {
     width:270px;
     height:150px;
-    border: 1px solid var(--main-color);
     border-radius: 5px;
     box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.2);
 }
