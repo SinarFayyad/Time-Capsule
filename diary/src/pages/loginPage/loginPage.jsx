@@ -21,16 +21,19 @@ const LoginPage = () => {
                         <label>Password</label>
                     </div>
                     <input type='password' placeholder='********'></input>
+                    <p>Forget password</p>
 
                     <button onClick={() => { navigate("/mainPage") }} className={styles.login_btn}>Login</button>
                 </div>
             </div>
-            <div className={styles.secondSection}>
-                <div className={styles.circle}>
-                    <a onClick={() => { navigate("/signUp") }}><h1 className={styles.title}>Sign up</h1></a>
-                    <p className={styles.sentence}>You don't have an account?</p>
+            <a onClick={() => { navigate("/signUp") }}>
+                <div className={styles.secondSection}>
+                    <div className={styles.circle}>
+                        <h1 className={styles.title}>Sign up</h1>
+                        <p className={styles.sentence}>You don't have an account?</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
         </div>
 
