@@ -12,18 +12,17 @@
 }
 
 .search_bar {
-    width:80%;
-    height:5%;
-    position:absolute;
-    top:20%;
     padding: 0.5em 1em; 
     border: 1px solid var(--main-color);
     border-radius:50px ;
     display: flex;
-    gap:4em;
     align-items: center;
     justify-content:center;
     text-align: center;
+    width:80%;
+    height:5%;
+    position:relative;
+    margin:2vw;
 }
 
 .search{
