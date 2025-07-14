@@ -61,4 +61,5 @@
     width:fit-content;
     text-align: center;
     justify-content: center;
+    color:var(--main-color);
 }
