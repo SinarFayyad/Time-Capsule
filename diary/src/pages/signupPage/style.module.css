@@ -34,7 +34,6 @@
     height: 100%;
     width:40%;
     border-radius: 0 50% 50% 0 ;
-    background-color: var(--main-color);
     position: absolute;
     left:0;
     display: flex;
@@ -74,25 +73,13 @@
 input {
     width:20em;
     height:2em;
-    border: 1px solid var(--main-color);
     border-radius: 50px;
     padding-left:1em;
 }
 
 .btn {
-    display: block;
     margin:5em;
-    text-align: center;
-    background-color: var(--main-color);
-    color: var(--text-color);
-    border:none;
-    padding:0.5em 1em;
-    font-size: 1em;
-    border-radius: 0.5em;
-    width:fit-content;
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
+    
 }
 
 

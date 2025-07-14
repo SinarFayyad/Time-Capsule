@@ -1,6 +1,7 @@
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
-import { Mail, LockKeyhole } from 'lucide-react'
+import { Mail, LockKeyhole, UserRound } from 'lucide-react'
+import Button from '../../Components/Button'
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -8,7 +9,7 @@ const SignUpPage = () => {
 
         <div className={styles.container}>
             <div className={styles.secondSection}>
-                <div className={styles.circle}>
+                <div className={`${styles.circle} main-color text-color`}>
                     <a onClick={() => { navigate("/login") }}><h1 className={styles.title}>Login</h1></a>
                     <p className={styles.sentence}>You don't have an account?</p>
                 </div>
@@ -17,6 +18,11 @@ const SignUpPage = () => {
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Sign Up</h1>
+                    <div className={styles.labels}>
+                        <UserRound />
+                        <label>Username</label>
+                    </div>
+                    <input type='text' placeholder='e.g. Joe Doe'></input>
                     <div className={styles.labels}>
                         <Mail />
                         <label>Email</label>
@@ -29,7 +35,7 @@ const SignUpPage = () => {
                     </div>
                     <input type='password' placeholder='********'></input>
 
-                    <button onClick={() => { navigate("/mainPage") }} className={styles.btn}>Sign Up</button>
+                    <Button path="/mainPage" title="Sign Up" className={`${styles.btn} main-color text-color`}>Sign Up</Button>
                 </div>
             </div>
             
