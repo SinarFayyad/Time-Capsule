@@ -1,4 +1,4 @@
-import styles from './navbar.module.css';
+import styles from './style.module.css';
 import logo from '../../assets/Time_Capsule_logo.png';
 import { useNavigate , useLocation } from "react-router-dom";
 
