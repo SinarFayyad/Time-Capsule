@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.container{
+    margin:0;
+    padding:0;
+    display: flex;
+}
+
+:root{
+    --main-color: rgb(223, 97, 255);
+    --secondary-color: rgb(134, 2, 134);
+    --text-color:rgb(255, 255, 255);
+}

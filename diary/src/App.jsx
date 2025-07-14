@@ -1,4 +1,5 @@
 import MyRoutes from './routes/api'
+import './App.css'
 
 
 const App = () => {
