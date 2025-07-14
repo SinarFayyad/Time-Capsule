@@ -10,9 +10,15 @@ function MainPage() {
     <div className={styles.main_container}>
       <Navbar />
       <SearchBar />
+      <h2 className={styles.title}>Your messages</h2>
       <div className={styles.userMessages}>
         <UserMessage />
         <UserMessage />
+        <UserMessage />
+        <UserMessage />
+      </div>
+      <h2 className={styles.title}>World's messages</h2>
+      <div className={styles.worldMessages}>
         <UserMessage />
         <UserMessage />
         <UserMessage />
