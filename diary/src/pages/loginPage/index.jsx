@@ -1,13 +1,9 @@
-<<<<<<< Updated upstream:diary/src/pages/loginPage/index..jsx
-import styles from './style.module.css'
-=======
 <<<<<<<< Updated upstream:diary/src/pages/loginPage/loginPage.jsx
 import styles from './loginPage.module.css'
 ========
 import styles from './style.module.css'
 import Button from '../../Components/Button/index'
 >>>>>>>> Stashed changes:diary/src/pages/loginPage/index.jsx
->>>>>>> Stashed changes:diary/src/pages/loginPage/loginPage.jsx
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
 
@@ -30,26 +26,20 @@ const LoginPage = () => {
                         <label>Password</label>
                     </div>
                     <input type='password' placeholder='********'></input>
-<<<<<<< Updated upstream:diary/src/pages/loginPage/index..jsx
-                    <p>Forget password</p>
-=======
 <<<<<<<< Updated upstream:diary/src/pages/loginPage/loginPage.jsx
 ========
                     <a>Forget password</a>
 >>>>>>>> Stashed changes:diary/src/pages/loginPage/index.jsx
->>>>>>> Stashed changes:diary/src/pages/loginPage/loginPage.jsx
 
                     <Button name="/mainPage" title="Login" />
                 </div>
             </div>
-            <a onClick={() => { navigate("/signUp") }}>
-                <div className={styles.secondSection}>
-                    <div className={styles.circle}>
-                        <h1 className={styles.title}>Sign up</h1>
-                        <p className={styles.sentence}>You don't have an account?</p>
-                    </div>
+            <div className={styles.secondSection}>
+                <div className={styles.circle}>
+                    <a onClick={() => { navigate("/signUp") }}><h1 className={styles.title}>Sign up</h1></a>
+                    <p className={styles.sentence}>You don't have an account?</p>
                 </div>
-            </a>
+            </div>
 
         </div>
 
