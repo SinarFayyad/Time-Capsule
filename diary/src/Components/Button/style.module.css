@@ -1,4 +1,4 @@
-.btn{
+button{
     border: none;
     display: block;
     cursor: pointer;
@@ -8,5 +8,4 @@
     width:fit-content;
     text-align: center;
     justify-content: center;
-    margin:5em;
 }

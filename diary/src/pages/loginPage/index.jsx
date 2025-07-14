@@ -24,7 +24,7 @@ const LoginPage = () => {
                     <input type='password' placeholder='********' className='border'></input>
                     <a>Forget password</a>
 
-                    <Button name="/mainPage" title="Login" className={`main-color text-color`}/>
+                    <Button name="/mainPage" title="Login" className={`${styles.btn} main-color text-color`}/>
                 </div>
             </div>
             <div className={styles.secondSection}>
