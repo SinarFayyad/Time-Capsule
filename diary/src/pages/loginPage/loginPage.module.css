@@ -1,11 +1,4 @@
-:root{
-    --main-color: rgb(223, 97, 255);
-    --secondary-color: rgb(92, 90 , 92);
-    --text-color:rgb(255, 255, 255);
-}
-
 .login_container{
-    margin:-0.5em;
     padding:0;
     width:100vw; 
     height:100vh; 
@@ -52,7 +45,10 @@
     width:fit-content;
     text-align: center;
     margin:2.5em;
-    
+}
+
+.content .title{
+    color:black;
 }
 
 .sentence{

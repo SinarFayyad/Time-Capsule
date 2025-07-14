@@ -1,11 +1,5 @@
-:root{
-    --main-color: rgb(223, 97, 255);
-    --secondary-color: rgb(92, 90 , 92);
-    --text-color:rgb(255, 255, 255);
-}
-
 .container{
-    margin:-0.5em;
+    margin:0;
     padding:0;
     width:100vw; 
     height:100vh; 
@@ -24,6 +18,10 @@
     justify-content: space-around;
     text-align: center;
     align-items: center;
+}
+
+.content .title{
+    color:black;
 }
 
 .secondSection {
