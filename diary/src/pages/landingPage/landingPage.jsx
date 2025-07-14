@@ -10,12 +10,12 @@ const LandingPage = () => {
             <Navbar />
             <div className={styles.circle}>
                 <h2 className={styles.headerTitle}>Welcome to</h2>
-                <h1>DEAR DIARY!</h1>
-                <p className={styles.myText}> Here is your place to send your messages to the world and recieve messages back!
+                <h1>Dear Future Me!</h1>
+                <p className={styles.myText}> Here is your place to send your messages to the world and receive messages back!
                     Write your notes, your goals and capsule it,
-                    Then let time remind u of the promises u made to urself!
+                    Then let time remind you of the promises you made to yourself!
                 </p>
-                <button onClick={() => { navigate("/login") }} className={styles.btn}>Login</button>
+                <button onClick={() => { navigate("/signup") }} className={styles.btn}>Get Started</button>
             </div>
         </div>
     );
