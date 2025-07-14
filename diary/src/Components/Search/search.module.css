@@ -1,14 +1,9 @@
-:root{
-    --main-color: rgb(223, 97, 255);
-    --secondary-color: rgb(92, 90 , 92);
-    --text-color:rgb(255, 255, 255);
-}
-
 .search_container{
-    width: 100vw;
+    width: 100%;
     justify-content: space-around;
     display: flex;
     text-align: center;
+    margin:2em 0 ;
 }
 
 .search_bar {
@@ -22,7 +17,7 @@
     width:80%;
     height:5%;
     position:relative;
-    margin:2vw;
+    margin:1vw;
 }
 
 .search{

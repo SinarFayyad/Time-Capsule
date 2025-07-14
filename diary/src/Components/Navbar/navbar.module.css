@@ -1,15 +1,9 @@
-:root{
-    --main-color: rgb(223, 97, 255);
-    --secondary-color: rgb(92, 90 , 92);
-    --text-color:rgb(255, 255, 255);
-}
-
 .Navbar{
     background-color: var(--main-color);
     margin:0;
     padding:0;
     position:relative;
-    height:4em;
+    height:4.5em;
     width:100%;
     display:flex;
     text-align: center;
@@ -20,10 +14,10 @@
 
 .logo {
     position: absolute;
-    top:-1.2em;
+    top:0;
     left:0;
-    height:5em;
-    width:5em;
+    height:3em;
+    width:3em;
     font-size: 24px;
     display: block;
     overflow: hidden;
@@ -42,4 +36,6 @@ h1 {
     gap:1em;
     position: absolute;
     right:1em;
+    cursor:pointer;
 }
+
