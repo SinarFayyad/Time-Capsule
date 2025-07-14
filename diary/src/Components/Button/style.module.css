@@ -1,0 +1,10 @@
+.btn{
+    padding:0.5em 1em;
+    border-radius: 1vw;
+    width:fit-content;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+}

@@ -1,7 +1,5 @@
 .footer{
     margin:0;
-    background-color: var(--main-color);
-    color:var(--text-color);
     width:100%;
     position:relative;
     text-align: center;
