@@ -1,7 +1,7 @@
-import LandingPage from '../pages/landingPage/landingPage';
-import MainPage from '../pages/mainPage/mainPage'
-import LoginPage from '../pages/loginPage/loginPage'
-import SignUpPage from '../pages/signupPage/signupPage';
+import LandingPage from '../pages/landingPage/index';
+import MainPage from '../pages/mainPage/index'
+import LoginPage from '../pages/loginPage/index'
+import SignUpPage from '../pages/signupPage/index';
 
 import { Routes, Route } from "react-router-dom";
 
