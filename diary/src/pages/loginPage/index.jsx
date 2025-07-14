@@ -1,9 +1,5 @@
-<<<<<<<< Updated upstream:diary/src/pages/loginPage/loginPage.jsx
-import styles from './loginPage.module.css'
-========
 import styles from './style.module.css'
 import Button from '../../Components/Button/index'
->>>>>>>> Stashed changes:diary/src/pages/loginPage/index.jsx
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
 
@@ -26,10 +22,9 @@ const LoginPage = () => {
                         <label>Password</label>
                     </div>
                     <input type='password' placeholder='********'></input>
-<<<<<<<< Updated upstream:diary/src/pages/loginPage/loginPage.jsx
-========
+
                     <a>Forget password</a>
->>>>>>>> Stashed changes:diary/src/pages/loginPage/index.jsx
+
 
                     <Button name="/mainPage" title="Login" />
                 </div>
