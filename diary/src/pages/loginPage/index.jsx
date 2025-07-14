@@ -7,7 +7,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
     return (
 
-        <div className={styles.login_container}>
+        <div className={styles.container}>
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Login</h1>
@@ -15,20 +15,20 @@ const LoginPage = () => {
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <input type='text' placeholder='e.g. JoeDoe@gmail.com'></input>
+                    <input type='text' placeholder='e.g. JoeDoe@gmail.com' className='border'></input>
 
                     <div className={styles.labels}>
                         <LockKeyhole />
                         <label>Password</label>
                     </div>
-                    <input type='password' placeholder='********'></input>
+                    <input type='password' placeholder='********' className='border'></input>
                     <a>Forget password</a>
 
-                    <Button name="/mainPage" title="Login" />
+                    <Button name="/mainPage" title="Login" className={`main-color text-color`}/>
                 </div>
             </div>
             <div className={styles.secondSection}>
-                <div className={styles.circle}>
+                <div className={`${styles.circle} main-color text-color`}>
                     <a onClick={() => { navigate("/signUp") }}><h1 className={styles.title}>Sign up</h1></a>
                     <p className={styles.sentence}>You don't have an account?</p>
                 </div>

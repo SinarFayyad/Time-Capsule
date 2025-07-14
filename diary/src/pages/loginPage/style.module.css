@@ -1,4 +1,4 @@
-.login_container{
+.container{
     padding:0;
     width:100vw; 
     height:100vh; 
@@ -10,8 +10,8 @@
     width:60%;
     height:100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content:space-around;
     text-align: center;
     align-items: center;
 
@@ -23,11 +23,11 @@
     color:var(--text-color);
     
 }
+
 .circle{
     height: 100%;
     width:40%;
     border-radius: 50% 0 0 50%;
-    background-color: var(--main-color);
     position: absolute;
     right:0;
     display: flex;
@@ -75,23 +75,8 @@ input {
     padding-left:1em;
 }
 
-.login_btn {
+a{
     display: block;
-    margin:5em;
-    text-align: center;
-    background-color: var(--main-color);
-    color: var(--text-color);
-    border:none;
-    padding:0.5em 1em;
-    font-size: 1em;
-    border-radius: 0.5em;
-    width:fit-content;
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-p{
     text-align: left;
     margin-top:0.1em;
     margin-left:0.5em;
