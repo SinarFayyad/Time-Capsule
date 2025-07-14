@@ -11,7 +11,6 @@
 .circle{
     margin:0;
     padding-bottom: 2vw;
-    background-color: var(--main-color);
     border-radius:50% 50% 0 0 ;
     position:absolute;
     width:100%;
@@ -37,25 +36,5 @@
 }
 
 .btn{
-<<<<<<< Updated upstream:diary/src/pages/landingPage/style.module.css
-=======
-<<<<<<< Updated upstream:diary/src/pages/landingPage/landingPage.module.css
-    margin-top:0.5em;
->>>>>>> Stashed changes:diary/src/pages/landingPage/landingPage.module.css
-    padding:0.5em 1em;
-    border-radius: 1vw;
-    width:fit-content;
-    text-align: center;
-    justify-content: center;
-<<<<<<< Updated upstream:diary/src/pages/landingPage/style.module.css
-    color:var(--text-color);
-    background-color: var(--secondary-color);
-    font-size: 1.5em;
-    border: none;
-    cursor: pointer;
-=======
-=======
     background-color: rgb(134, 2, 134);
->>>>>>> Stashed changes:diary/src/pages/landingPage/style.module.css
->>>>>>> Stashed changes:diary/src/pages/landingPage/landingPage.module.css
 }

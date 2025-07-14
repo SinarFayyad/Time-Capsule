@@ -6,7 +6,7 @@ const AddMessage = () => {
     return (
         <div className={styles.container}>
             <Navbar />
-            <div className={styles.message}>
+            <div className={`${styles.message} border`}>
                 <div className={styles.header}>
                     <p>Choose your mood</p>
                     <div className={styles.mood}>
