@@ -1,4 +1,4 @@
-import styles from './signupPage.module.css'
+import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import { UserRound, Mail, LockKeyhole } from 'lucide-react'
 

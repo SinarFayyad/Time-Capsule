@@ -1,5 +1,5 @@
-import styles from './landingPage.module.css'
-import Navbar from '../../Components/Navbar/navbar'
+import styles from './style.module.css'
+import Navbar from '../../Components/Navbar/index'
 import {useNavigate} from 'react-router-dom';
 
 const LandingPage = () => {

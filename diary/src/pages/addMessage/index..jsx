@@ -1,5 +1,5 @@
-import styles from './addMessage.module.css'
-import Navbar from '../../Components/Navbar/navbar';
+import styles from './style.module.css'
+import Navbar from '../../Components/Navbar/index.';
 import { Smile, Meh, Frown ,Paperclip} from 'lucide-react'
 
 const AddMessage = () => {

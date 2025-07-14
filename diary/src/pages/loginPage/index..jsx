@@ -1,4 +1,4 @@
-import styles from './loginPage.module.css'
+import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
 

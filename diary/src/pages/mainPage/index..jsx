@@ -1,8 +1,8 @@
-import styles from './mainPage.module.css'
-import Footer from '../../Components/Footer/footer'
-import Navbar from '../../Components/Navbar/navbar'
-import SearchBar from '../../Components/Search/search'
-import UserMessage from '../../Components/UserMessage/userMessage'
+import styles from './style.module.css'
+import Footer from '../../Components/Footer'
+import Navbar from '../../Components/Navbar/index.'
+import SearchBar from '../../Components/Search/index.'
+import UserMessage from '../../Components/UserMessage/index.'
 import { useNavigate } from 'react-router-dom'
 
 function MainPage() {
