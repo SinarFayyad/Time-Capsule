@@ -1,4 +1,4 @@
-import styles from './userMessage.module.css';
+import styles from './style.module.css';
 
 const UserMessage = ({ username, message }) => {
     return (
