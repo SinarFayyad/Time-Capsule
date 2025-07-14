@@ -54,6 +54,7 @@
 }
 
 .btn{
+<<<<<<< Updated upstream:diary/src/pages/landingPage/landingPage.module.css
     margin-top:0.5em;
     padding:0.5em 1em;
     font-size: 1em;
@@ -61,4 +62,7 @@
     width:fit-content;
     text-align: center;
     justify-content: center;
+=======
+    background-color: rgb(134, 2, 134);
+>>>>>>> Stashed changes:diary/src/pages/landingPage/style.module.css
 }

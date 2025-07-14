@@ -78,6 +78,7 @@ input {
     padding-left:1em;
 }
 
+<<<<<<< Updated upstream:diary/src/pages/loginPage/loginPage.module.css
 .login_btn {
     display: block;
     margin:5em;
@@ -94,3 +95,11 @@ input {
 }
 
 
+=======
+p{
+    text-align: left;
+    margin-top:0.1em;
+    margin-left:0.5em;
+    cursor: pointer;
+}
+>>>>>>> Stashed changes:diary/src/pages/loginPage/style.module.css
