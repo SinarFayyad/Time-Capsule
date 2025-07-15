@@ -1,5 +1,6 @@
 import styles from './style.module.css'
 import Button from '../../Components/Button/index'
+import Input from '../../Components/Input/index'
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
 
@@ -15,14 +16,14 @@ const LoginPage = () => {
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <input type='text' placeholder='e.g. JoeDoe@gmail.com' className='border'></input>
+                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com'/>
 
                     <div className={styles.labels}>
                         <LockKeyhole />
                         <label>Password</label>
                     </div>
-                    <input type='password' placeholder='********' className='border'></input>
-                    <a>Forget password</a>
+                    <Input type='password' placeholder='********' />
+                    <a href="">Forget password</a>
 
                     <Button name="/mainPage" title="Login" className={`${styles.btn} main-color text-color`}/>
                 </div>

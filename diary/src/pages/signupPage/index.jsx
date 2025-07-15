@@ -1,7 +1,8 @@
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole, UserRound } from 'lucide-react'
-import Button from '../../Components/Button'
+import Button from '../../Components/Button/index'
+import Input from '../../Components/Input/index'
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -22,18 +23,18 @@ const SignUpPage = () => {
                         <UserRound />
                         <label>Username</label>
                     </div>
-                    <input type='text' placeholder='e.g. Joe Doe'></input>
+                    <Input type='text' placeholder='e.g. Joe Doe'/>
                     <div className={styles.labels}>
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <input type='text' placeholder='e.g. JoeDoe@gmail.com'></input>
+                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com'/>
 
                     <div className={styles.labels}>
                         <LockKeyhole />
                         <label>Password</label>
                     </div>
-                    <input type='password' placeholder='********'></input>
+                    <Input type='password' placeholder='********'/>
 
                     <Button path="/mainPage" title="Sign Up" className={`${styles.btn} main-color text-color`}>Sign Up</Button>
                 </div>
