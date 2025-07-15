@@ -78,3 +78,8 @@ a{
 .btn{
     margin:5em;
 }
+
+a{
+    margin:0;
+    padding:0;
+}

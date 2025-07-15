@@ -16,7 +16,7 @@ const LoginPage = () => {
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com'/>
+                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com' />
 
                     <div className={styles.labels}>
                         <LockKeyhole />
@@ -25,14 +25,16 @@ const LoginPage = () => {
                     <Input type='password' placeholder='********' />
                     <a href="">Forget password</a>
 
-                    <Button name="/mainPage" title="Login" className={`${styles.btn} main-color text-color`}/>
+                    <Button name="/mainPage" title="Login" className={`${styles.btn} main-color text-color`} />
                 </div>
             </div>
             <div className={styles.secondSection}>
-                <div className={`${styles.circle} main-color text-color`}>
-                    <a onClick={() => { navigate("/signUp") }}><h1 className={styles.title}>Sign up</h1></a>
-                    <p className={styles.sentence}>You don't have an account?</p>
-                </div>
+                <a onClick={() => { navigate("/signUp") }}>
+                    <div className={`${styles.circle} main-color text-color`}>
+                        <h1 className={styles.title}>Sign up</h1>
+                        <p className={styles.sentence}>You don't have an account?</p>
+                    </div>
+                </a>
             </div>
 
         </div>

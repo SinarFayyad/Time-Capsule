@@ -1,9 +1,9 @@
 import './style.module.css'
 
-const Input = ({text, placeholder}) => {
+const Input = ({text, placeholder , className}) => {
 
     return (
-        <input type={text} placeholder={placeholder} className='border'></input>
+        <input type={text} placeholder={placeholder} className={`${className} border`}></input>
     );
 }
 
