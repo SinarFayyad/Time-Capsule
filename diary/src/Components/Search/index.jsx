@@ -7,7 +7,7 @@ const SearchBar = () => {
     return (
         <div className={styles.search_container}>
             <div className={styles.search_bar}>
-                <Input type="text" placeholder='Search...' className={`${styles.search}`}/>
+                <Input name="search" type="text" hint='Search...' className={`${styles.search}`}/>
                 <Search className={styles.search_btn} />
             </div>
         </div>
