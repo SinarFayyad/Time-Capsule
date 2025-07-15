@@ -3,12 +3,13 @@ import Button from '../../Components/Button/index'
 import Input from '../../Components/Input/index'
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
+import Logo from '../../Components/Logo/index'
 
 const LoginPage = () => {
     const navigate = useNavigate();
     return (
-
         <div className={styles.container}>
+            <Logo/>
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Login</h1>

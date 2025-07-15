@@ -11,17 +11,6 @@
     font-family:inter;
 }
 
-.logo {
-    position: absolute;
-    top:0;
-    left:0;
-    height:3em;
-    width:3em;
-    font-size: 24px;
-    display: block;
-    overflow: hidden;
-}
-
 h1 {
     text-align: center;
     margin:0;
