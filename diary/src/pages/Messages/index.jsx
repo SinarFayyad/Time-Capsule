@@ -6,7 +6,7 @@ const Messages = () => {
   const [Messages, setMessages] = useState([]);
 
   const loadMessages = async () => {
-    const res = await axios.get("http://jsonplaceholder.typicode.com/messages");
+    const res = await axios.get("./http://jsonplaceholder.typicode.com/posts");
 
     console.log(res.data);
 
@@ -19,7 +19,7 @@ const Messages = () => {
 
   return (
     <div>
-        {users.map((message) => (
+        {Messages.map((message) => (
           <UserMessage content={message.content}/>
         ))}
       
