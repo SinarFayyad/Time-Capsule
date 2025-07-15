@@ -1,7 +1,7 @@
 import styles from './style.module.css'
 import Navbar from '../../Components/Navbar/index'
 import Button from '../../Components/Button/index'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
 
@@ -17,12 +17,12 @@ const LandingPage = () => {
                     Then let time remind you of the promises you made to yourself!
                 </p>
                 <Button
-                        title="Get Started"
-                        className={`${styles.btn} secondary-color text-color`}
-                        onClickListener={
-                                navigate("/signup")                        
-                        } 
-                    />
+                    title="Get Started"
+                    className={`${styles.btn} secondary-color text-color`}
+                    onClickListener={() => {navigate("/signup")}}
+                />
+
+                
             </div>
         </div>
     );
