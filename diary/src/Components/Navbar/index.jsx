@@ -18,7 +18,7 @@ const Navbar = () => {
             {location.pathname !== '/' &&
                 <div className={styles.links}>
                     <a onClick = {() => {navigate('/addMessage')}}><h3>Add message</h3></a>
-                    <a onClick = {() => {navigate('/yourMessages')}}><h3>My messages</h3></a>
+                    <a onClick = {() => {navigate('/profile')}}><h3>Profile</h3></a>
                 </div>}
         </div>
     );
