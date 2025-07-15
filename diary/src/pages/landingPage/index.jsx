@@ -16,7 +16,13 @@ const LandingPage = () => {
                     Write your notes, your goals and capsule it.
                     Then let time remind you of the promises you made to yourself!
                 </p>
-                <Button path="/signup" title="Get Started" className={`${styles.btn} secondary-color text-color`} />
+                <Button
+                        title="Get Started"
+                        className={`${styles.btn} secondary-color text-color`}
+                        onClickListener={
+                                navigate("/signup")                        
+                        } 
+                    />
             </div>
         </div>
     );

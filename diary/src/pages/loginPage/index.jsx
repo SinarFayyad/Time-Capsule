@@ -1,4 +1,4 @@
-import React , { useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './style.module.css'
 import Button from '../../Components/Button/index'
 import Input from '../../Components/Input/index'
@@ -14,7 +14,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("DO Something");
+        console.log("Login");
     }, [email]);
 
     return (
@@ -23,45 +23,47 @@ const LoginPage = () => {
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Login</h1>
-                    <div className={styles.labels}>
-                        <Mail />
-                        <label>Email</label>
-                    </div>
-                    <Input type="text"
-                        name='email'
-                        hint='e.g. JoeDoe@gmail.com'
-                        onChangeListener={(e) => { setEmail(e.target.value) }} />
+                    <form>
+                        <div className={styles.labels}>
+                            <Mail />
+                            <label>Email</label>
+                        </div>
+                        <Input type="text"
+                            name='email'
+                            hint='e.g. JoeDoe@gmail.com'
+                            onChangeListener={(e) => { setEmail(e.target.value) }} />
 
-                    <div className={styles.labels}>
-                        <LockKeyhole />
-                        <label>Password</label>
-                    </div>
-                    <Input type='password'
-                        name="password"
-                        hint='********'
-                        onChangeListener={(e) => { setPassword(e.target.value) }}
-                    />
-                    <a href="">Forget password</a>
+                        <div className={styles.labels}>
+                            <LockKeyhole />
+                            <label>Password</label>
+                        </div>
+                        <Input type='password'
+                            name="password"
+                            hint='********'
+                            onChangeListener={(e) => { setPassword(e.target.value) }}
+                        />
+                        <a href="">Forget password</a>
 
-                    <Button
-                        title="Login"
-                        className={`${styles.btn} main-color text-color`}
-                        onClickListener={async () => {
-                            console.log(email, password);
+                        <Button
+                            title="Login"
+                            className={`${styles.btn} main-color text-color`}
+                            onClickListener={async () => {
+                                console.log(email, password);
 
-                            // const res = await axios.post("loginurl", {
-                            //   email: email,
-                            //   pass: password,
-                            // });
+                                // const res = await axios.post("loginurl", {
+                                //   email: email,
+                                //   pass: password,
+                                // });
 
-                            if (true) {
-                                // navigate to dashboard
-                                navigate("/mainPage");
-                            } else {
-                                // display error on the ui
-                            }
-                        }} 
-                    />
+                                if (true) {
+                                    // navigate to dashboard
+                                    navigate("/mainPage");
+                                } else {
+                                    // display error on the ui
+                                }
+                            }}
+                        />
+                    </form>
                 </div>
             </div>
             <div className={styles.secondSection}>
