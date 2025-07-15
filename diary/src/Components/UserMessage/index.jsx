@@ -1,12 +1,12 @@
 import styles from './style.module.css';
 
 
-const UserMessage = ({ content }) => {
+const UserMessage = ({ message,pic}) => {
     return (
         <>
             <div className={`${styles.userMessage} border`}>
-                <img src="https://via.placeholder.com/150" alt="img placeholder"></img>
-                <p className={styles.message}>{content}</p>
+                <img src={pic} alt="img " className='border'></img>
+                <p className={styles.message}>{message}</p>
             </div>
         </>
     );
