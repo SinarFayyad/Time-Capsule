@@ -1,3 +1,4 @@
+import React , { useState,useEffect} from 'react'
 import styles from './style.module.css'
 import Button from '../../Components/Button/index'
 import Input from '../../Components/Input/index'
@@ -6,10 +7,19 @@ import { Mail, LockKeyhole } from 'lucide-react'
 import Logo from '../../Components/Logo/index'
 
 const LoginPage = () => {
+
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log("DO Something");
+    }, [email]);
+
     return (
         <div className={styles.container}>
-            <Logo/>
+            <Logo />
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Login</h1>
@@ -17,16 +27,41 @@ const LoginPage = () => {
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com' />
+                    <Input type="text"
+                        name='email'
+                        hint='e.g. JoeDoe@gmail.com'
+                        onChangeListener={(e) => { setEmail(e.target.value) }} />
 
                     <div className={styles.labels}>
                         <LockKeyhole />
                         <label>Password</label>
                     </div>
-                    <Input type='password' placeholder='********' />
+                    <Input type='password'
+                        name="password"
+                        hint='********'
+                        onChangeListener={(e) => { setPassword(e.target.value) }}
+                    />
                     <a href="">Forget password</a>
 
-                    <Button name="/mainPage" title="Login" className={`${styles.btn} main-color text-color`} />
+                    <Button
+                        title="Login"
+                        className={`${styles.btn} main-color text-color`}
+                        onClickListener={async () => {
+                            console.log(email, password);
+
+                            // const res = await axios.post("loginurl", {
+                            //   email: email,
+                            //   pass: password,
+                            // });
+
+                            if (true) {
+                                // navigate to dashboard
+                                navigate("/mainPage");
+                            } else {
+                                // display error on the ui
+                            }
+                        }} 
+                    />
                 </div>
             </div>
             <div className={styles.secondSection}>

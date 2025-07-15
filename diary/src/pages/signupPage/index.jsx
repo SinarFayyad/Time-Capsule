@@ -27,18 +27,18 @@ const SignUpPage = () => {
                         <UserRound />
                         <label>Username</label>
                     </div>
-                    <Input type='text' placeholder='e.g. Joe Doe' />
+                    <Input type='text' hint='e.g. Joe Doe' />
                     <div className={styles.labels}>
                         <Mail />
                         <label>Email</label>
                     </div>
-                    <Input type='text' placeholder='e.g. JoeDoe@gmail.com' />
+                    <Input type='text' hint='e.g. JoeDoe@gmail.com' />
 
                     <div className={styles.labels}>
                         <LockKeyhole />
                         <label>Password</label>
                     </div>
-                    <Input type='password' placeholder='********' />
+                    <Input type='password' hint='********' />
 
                     <Button path="/mainPage" title="Sign Up" className={`${styles.btn} main-color text-color`}>Sign Up</Button>
                 </div>
