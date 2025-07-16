@@ -21,12 +21,12 @@
     display: flex;
     justify-content: space-between;
     gap:0.5em;
-    
 }
 
-.mood :hover{
-    color:var(--main-color);
+.mood :hover, .mood:active{
+    color:rgb(223,97,225);
 }
+
 
 .textarea{
     border:none;

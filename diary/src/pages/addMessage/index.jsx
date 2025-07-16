@@ -15,7 +15,7 @@ const AddMessage = () => {
                         <Frown />
                     </div>
                 </div>
-
+                <div className='divider'></div>
                 <div className={styles.divider}></div>
 
                 <div className={styles.content}>
