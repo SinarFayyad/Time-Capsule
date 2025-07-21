@@ -8,11 +8,4 @@ const Button = ({ title , className, onClickListener}) => {
     );
 }
 
-// const Button = ({ path , title , className}) => {
-
-//     const navigate = useNavigate();
-//     return (
-//         <button onClick={ () => {navigate(path)}}  className={` ${className}`}>{title}</button>
-//     );
-// }
 export default Button

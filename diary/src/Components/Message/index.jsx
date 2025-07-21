@@ -1,15 +1,23 @@
 import styles from './style.module.css';
 import { Smile, Meh, Frown } from 'lucide-react'
 
-const UserMessage = ({ username, message, pic, mood }) => {
+const Message = ({ username, message, pic, mood }) => {
 
+    let emogi;
+    if(mood == "happy"){
+        emogi= <Smile/>
+    }else if(mood== "sad"){
+        emogi= <Meh/>
+    }else if (mood == "angry"){
+        emogi= <Frown/>
+    }
     return (
         <>
             <div className={`${styles.Message} border`}>
 
                 <div className={styles.header}>
                     <p className={styles.name}>{username}</p>
-                    <Smile />
+                    <>{emogi}</>
                 </div>
                 <div className='divider'></div>
                 <div className={styles.content}>
@@ -21,4 +29,4 @@ const UserMessage = ({ username, message, pic, mood }) => {
     );
 }
 
-export default UserMessage
+export default Message

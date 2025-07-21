@@ -10,7 +10,6 @@ const Input = ({ type, name, hint, className, required , onChangeListener }) => 
             className={`${className} border`}
             required={required}
             onChange={onChangeListener}>
-        
         </input>
     );
 }
