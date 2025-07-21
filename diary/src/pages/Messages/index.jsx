@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import UserMessage from "../../Components/UserMessage";
+import Message from "../../Components/Message/index";
 
 const Messages = () => {
   const [Messages, setMessages] = useState([]);
 
   const loadMessages = async () => {
-    const res = await axios.get("./http://jsonplaceholder.typicode.com/posts");
+    const res = await axios.get("http://localhost:8000/api/messages/1");
 
-    console.log(res.data);
-
-    setMessages(res.data);
+    console.log(res.data.payload);
+    setMessages(res.data.payload);
   };
 
   useEffect(() => {
@@ -18,9 +17,9 @@ const Messages = () => {
   }, []);
 
   return (
-    <div>
+    <div className="MessageContainer">
         {Messages.map((message) => (
-          <UserMessage content={message.content}/>
+          <Message content={message.content}/>
         ))}
       
     </div> 

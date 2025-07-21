@@ -5,6 +5,7 @@ import SearchBar from '../../Components/Search'
 // import UserMessage from '../../Components/UserMessage'
 import Message from '../../Components/Message/index'
 import { useNavigate } from 'react-router-dom'
+import Messages from '../Messages/index'
 
 function MainPage() {
 
@@ -15,17 +16,11 @@ function MainPage() {
       <div className={styles.main_container}>
         <h2 className={styles.title}>Your messages</h2>
         <div className={styles.userMessages}>
-          <Message username={"Sino(You)"} message={"I want to sleep"} mood="Smile"/>
-          <Message username={"Sino(You)"} message={"I want to sleep"}mood="Smile"/>
-          <Message username={"Sino(You)"} message={"I want to sleep"}mood="Smile"/>
-          <Message username={"Sino(You)"} message={"I want to sleep"}mood="Smile"/>
+          <Messages/>
         </div>
         <h2 className={styles.title}>World's messages</h2>
         <div className={styles.worldMessages}>
-          <Message username={"Sino"} message={"I want to sleep"} mood="Smile"/>
-          <Message username={"Sino"} message={"I want to sleep"}mood="Smile"/>
-          <Message username={"Sino"} message={"I want to sleep"}mood="Smile"/>
-          <Message username={"Sino"} message={"I want to sleep"}mood="Smile"/>
+          <Messages/>
         </div>
       </div>
       <Footer />
