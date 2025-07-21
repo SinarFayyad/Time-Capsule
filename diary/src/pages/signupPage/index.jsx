@@ -1,22 +1,39 @@
+import axios from 'axios'
 import styles from './style.module.css'
-import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Mail, LockKeyhole, UserRound } from 'lucide-react'
-import Button from '../../Components/Button/index'
-import Input from '../../Components/Input/index'
 import Logo from '../../Components/Logo/index'
+import { useNavigate } from 'react-router-dom'
+import Input from '../../Components/Input/index'
+import Button from '../../Components/Button/index'
+import { Mail, LockKeyhole, UserRound } from 'lucide-react'
 
 const SignUpPage = () => {
 
-    const [username, setUsername] = useState();
     const [email, setEmail] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("DO Something");
-    }, [email]);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post("http://localhost:8000/api/register", {
+                username: username,
+                email: email,
+                password: password,
+            });
+
+            if (res.status === 200) {
+                navigate("/mainPage");
+            } else {
+                setErrorMessage("Sign up failed");
+            }
+        } catch (error) {
+            setErrorMessage("Sign up failed: " + error.message);
+        }
+    };
 
     return (
 
@@ -34,7 +51,7 @@ const SignUpPage = () => {
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Sign Up</h1>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className={styles.labels}>
                             <UserRound />
                             <label>Username</label>
@@ -65,24 +82,16 @@ const SignUpPage = () => {
                         <Button
                             title="Sign up "
                             className={`${styles.btn} main-color text-color`}
-                            onClickListener={async () => {
-                                console.log(username, email, password);
-
-                                // const res = await axios.post("signupurl", {
-                                //   username: username,
-                                //   email: email,
-                                //   pass: password,
-                                // });
-
-                                if (true) {//if the query is handled right 
-                                    // navigate to dashboard
-                                    navigate("/mainPage");
-                                } else {
-                                    // display error on the ui
-                                }
-                            }}
+                            type="submit"
                         />
                     </form>
+
+                    {errorMessage && (
+                        <div className={styles.errorMessage}>
+                            {errorMessage}
+                        </div>
+                    )}
+
                 </div>
             </div>
 

@@ -5,17 +5,33 @@ import Input from '../../Components/Input/index'
 import { useNavigate } from 'react-router-dom'
 import { Mail, LockKeyhole } from 'lucide-react'
 import Logo from '../../Components/Logo/index'
+import axios from 'axios'
 
 const LoginPage = () => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("Login");
-    }, [email]);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post("http://localhost:8000/api/login", {
+                email: email,
+                password: password,
+            });
+
+            if (res.status === 200) {
+                navigate("/mainPage");
+            } else {
+                setErrorMessage("Login failed");
+            }
+        } catch (error) {
+            setErrorMessage("Login failed: " + error.message);
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -23,7 +39,7 @@ const LoginPage = () => {
             <div className={styles.content}>
                 <div>
                     <h1 className={styles.title}>Login</h1>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className={styles.labels}>
                             <Mail />
                             <label>Email</label>
@@ -47,23 +63,14 @@ const LoginPage = () => {
                         <Button
                             title="Login"
                             className={`${styles.btn} main-color text-color`}
-                            onClickListener={async () => {
-                                console.log(email, password);
-
-                                // const res = await axios.post("loginurl", {
-                                //   email: email,
-                                //   pass: password,
-                                // });
-
-                                if (true) {
-                                    // navigate to dashboard
-                                    navigate("/mainPage");
-                                } else {
-                                    // display error on the ui
-                                }
-                            }}
+                            type="submit"
                         />
                     </form>
+                    {errorMessage && (
+                        <div className={styles.errorMessage}>
+                            {errorMessage}
+                        </div>
+                    )}
                 </div>
             </div>
             <div className={styles.secondSection}>
