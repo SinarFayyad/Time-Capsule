@@ -34,11 +34,7 @@ const LoginPage = () => {
         } catch (error) {
             if (error.response) {
                 const backendMessage = error.response.data?.message || '';
-                if (error.response.status === 401) {
-                    setErrorMessage({ message: backendMessage || "Unauthorized access" });            
-                } else {
-                    setErrorMessage({ message: error.message, code: error.response.status });
-                }
+                setErrorMessage({ message: error.message, code: error.response.status });
             }
         }
     };
