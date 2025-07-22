@@ -1,0 +1,25 @@
+.error{
+    width:20em;
+    height:10em;
+    display: flex;
+    position: absolute;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 30%;
+    left: 40%;
+    z-index: 1000;
+    padding:2vw;
+    border:1px solid white;
+}
+
+.closeButton{
+    position: absolute;
+    top:2vw;
+    right:2vw;
+    background-color: white;
+    border-radius: 50px;
+    font-size: 24px;
+    padding:0 0.5em ;
+}
