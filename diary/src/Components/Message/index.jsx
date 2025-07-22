@@ -1,14 +1,14 @@
 import styles from './style.module.css';
 import { Smile, Meh, Frown } from 'lucide-react'
 
-const Message = ({ username, message, pic, mood }) => {
+const Message = ({ title, message, media, mood }) => {
 
     let emogi;
-    if(mood == "happy"){
+    if(mood == "Happy"){
         emogi= <Smile/>
-    }else if(mood== "sad"){
+    }else if(mood== "Sad"){
         emogi= <Meh/>
-    }else if (mood == "angry"){
+    }else if (mood == "Angry"){
         emogi= <Frown/>
     }
     return (
@@ -16,12 +16,12 @@ const Message = ({ username, message, pic, mood }) => {
             <div className={`${styles.Message} border`}>
 
                 <div className={styles.header}>
-                    <p className={styles.name}>{username}</p>
-                    <>{emogi}</>
+                    <p className={styles.title}>{title}</p>
+                    <div className={styles.icons}>{emogi}</div>
                 </div>
                 <div className='divider'></div>
                 <div className={styles.content}>
-                    <img src={pic} alt="img " className='border'></img>
+                    {/* <img src={media} alt="img " className='border'></img> */}
                     <p className={styles.message}>{message}</p>
                 </div>
             </div>
