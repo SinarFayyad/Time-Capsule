@@ -3,7 +3,6 @@ import axios from 'axios';
 import styles from './style.module.css';
 import Navbar from '../../Components/Navbar/index';
 import Button from '../../Components/Button/index'
-import Input from '../../Components/Input/index'
 import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
@@ -13,9 +12,9 @@ const ProfilePage = () => {
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
 
-    const id = 1;
     // const id = localStorage.getItem("id");
 
+    let id =1;
     const fetchUserData = async () => {
         try {
             const response = await axios.get(`http://localhost:8000/api/user/${id}`);
@@ -39,7 +38,6 @@ const ProfilePage = () => {
             </div>
         );
     }
-
     if (error) {
         return (
             <div className={styles.container}>
@@ -58,7 +56,6 @@ const ProfilePage = () => {
                     <p><strong>Username:</strong> {info.username}</p>
                     <p><strong>Email:</strong> {info.email}</p>
                     <Button title="Edit" className={'main-color text-color'} onClickListener={navigate('/editProfile')}/>
-                       
                 </div>
             </div>
         </div>

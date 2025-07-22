@@ -1,11 +1,17 @@
+import axios from 'axios'
+import React, { useState} from 'react'
 import styles from './style.module.css'
-import Navbar from '../../Components/Navbar';
+import Input from '../../Components/Input'
+import Navbar from '../../Components/Navbar'
+import { useNavigate } from 'react-router-dom'
+import Button from '../../Components/Button/index'
 
-const editProfile = () => {
+const EditProfile = () => {
 
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
 
+    const navigate = useNavigate();
     const id = localStorage.getItem("id");
     const submitEdits = async () => {
         try {
@@ -18,7 +24,7 @@ const editProfile = () => {
                 navigate("/Profile");
             }
         } catch {
-            setError('Failed to update user data!');
+            console.log("error");
         }
     }
 
@@ -48,7 +54,7 @@ const editProfile = () => {
                         <Button
                             title="Login"
                             className={`${styles.btn} main-color text-color`}
-                            type="submit"
+                            onClickListener={navigate('/profile')}
                         />
                     </form>
                 </div>
@@ -56,3 +62,5 @@ const editProfile = () => {
         </div>
     )
 }
+
+export default EditProfile
