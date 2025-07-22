@@ -27,7 +27,7 @@ const Messages = ({ content }) => {
 
   return (
     <div className={styles.container}>
-      {Messages.length === 0 ? (
+      { content== "myMessages" && Messages.length === 0 ? (
         <div className={styles.emptyStateContainer}>
           <Button title="Create your first message" onClickListener={() => {navigate("/addMessage")}} className={`main-color text-color`}/>
         </div>

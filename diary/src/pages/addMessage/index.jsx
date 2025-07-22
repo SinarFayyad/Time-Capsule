@@ -8,7 +8,7 @@ import { useState } from 'react';
 import axios from 'axios'
 
 const AddMessage = () => {
-
+    
     const [mood, setMood] = useState("");
     const [message, setMessage] = useState("");
     const [media, setMedia] = useState("");
@@ -22,18 +22,20 @@ const AddMessage = () => {
     });
 
     const id = localStorage.getItem("id");
-    const submitForm = async () => {
+    const submitForm = async (e) => {
+        e.preventDefault();
+
         const res = await axios.post("http://localhost:8000/api/addMessage", {
             "user_id": {id}, 
             "title":title,
             "color":"white",
             "mood":mood,
-            "message" :message,
-            "audio":null, 
-            "media":null,
+            "message" : message,
+            "audio":"null", 
+            "media":"null",
             "reveal_date":date,
             "location":location, 
-            "privacy":privacy,
+            "privacy":privacy
         });
 
     }
@@ -55,7 +57,7 @@ const AddMessage = () => {
                         <div className={styles.divider}></div>
 
                         <div className={styles.content}>
-                            <textarea className={styles.textarea} placeholder="Write your message"></textarea>
+                            <textarea className={styles.textarea} placeholder="Write your message" onChangeListener={(e) => { setMessage(e.target.value) }}></textarea>
                             <Paperclip className={styles.paperclip} />
                         </div>
                     </div>
