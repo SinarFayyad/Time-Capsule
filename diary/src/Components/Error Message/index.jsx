@@ -19,14 +19,16 @@ const ErrorMessage = ({ message, errorCode, onClose }) => {
     };
 
     return (
-        <div className={`${styles.error} main-color`}>
-            {getFriendlyMessage()}
-            <button
-                className={styles.closeButton}
-                onClick={onClose}
-            >
-                ×
-            </button>
+        <div className={styles.container}>
+            <div className={`${styles.error} main-color`}>
+                {getFriendlyMessage()}
+                <button
+                    className={styles.closeButton}
+                    onClick={onClose}
+                >
+                    ×
+                </button>
+            </div>
         </div>
     );
 }
