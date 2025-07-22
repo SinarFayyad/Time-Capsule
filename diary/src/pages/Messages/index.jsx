@@ -3,17 +3,19 @@ import React, { useEffect, useState } from "react";
 import Message from "../../Components/Message/index";
 import styles from './style.module.css'
 
-const Messages = (content) => {
+const Messages = ({content}) => {
   const [Messages, setMessages] = useState([]);
 
   const loadMessages = async () => {
-    let res;
     if (content == "myMessages") {
-      res = await axios.get("http://localhost:8000/api/messages/2");
+
+      const id = localStorage.getItem("id");
+      const res = await axios.get(`http://localhost:8000/api/messages/${id}`);
+      let message = setMessages(res.data.payload);
     } else if (content== "allMessages"){
-      res = await axios.get("http://localhost:8000/api/messages")
+      const res = await axios.get("http://localhost:8000/api/messages")
+      let message = setMessages(res.data.payload);
     } 
-    let message = setMessages(res.data.payload);
   }
 
   useEffect(() => {

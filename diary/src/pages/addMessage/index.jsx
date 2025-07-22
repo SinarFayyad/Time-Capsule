@@ -5,19 +5,36 @@ import Button from '../../Components/Button/index';
 import Footer from '../../Components/Footer/index'
 import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, FolderLock } from 'lucide-react'
 import { useState } from 'react';
+import axios from 'axios'
 
 const AddMessage = () => {
+
+    const [mood, setMood] = useState("");
+    const [message, setMessage] = useState("");
+    const [media, setMedia] = useState("");
+    const [title, setTitle] = useState("");
+    const [date, setDate] = useState("");
+    const [location, setLocation] = useState("");
     const [privacy, setPrivacy] = useState({
         private: false,
         public: false,
         unlisted: false,
     });
 
-    const handlePrivacyChange = (e) => {
-        const { name, checked } = e.target;
-        setPrivacy(prev => ({ ...prev, [name]: checked }));
-    };
+    const submitForm = async () => {
+        const res = await axios.post("http://localhost:8000/api/addMessage", {
+            "title": title,
+            "message": message,
+            "mood": mood,
+            "privacy": privacy,
+            "media": media,
+            "color": "white",
 
+
+
+        });
+
+    }
     return (
         <div className={styles.container}>
             <Navbar />
@@ -27,9 +44,9 @@ const AddMessage = () => {
                         <div className={styles.header}>
                             <p>Choose your mood</p>
                             <div className={styles.mood}>
-                                <Smile />
-                                <Meh />
-                                <Frown />
+                                <Smile onClick={() => { setMood("happy") }} className={mood == "happy" && styles.selected} />
+                                <Meh onClick={() => { setMood("sad") }} className={mood == "sad" && styles.selected} />
+                                <Frown onClick={() => { setMood("angry") }} className={mood == "angry" && styles.selected} />
                             </div>
                         </div>
                         <div className='divider'></div>
@@ -47,21 +64,36 @@ const AddMessage = () => {
                             <Captions />
                             <span>Select title for your messages</span>
                         </div >
-                        <Input type="text" name="title" hint="e.g Good memories" className={`border`} required={false} onChangeListener={() => { }} />
+                        <Input type="text"
+                            name="title"
+                            hint="e.g Good memories"
+                            className={`border`}
+                            required={true}
+                            onChangeListener={(e) => { setTitle(e.target.value) }} />
                     </div>
                     <div className={styles.cadre}>
                         <div className={styles.inputs}>
                             <CalendarFold />
                             <span>Choose the reveal date</span>
                         </div>
-                        <Input type="date" name="revealDate" hint="MM/DD/YYYY" className={`border`} required={false} onChangeListener={() => { }} />
+                        <Input type="date"
+                            name="revealDate"
+                            hint="MM/DD/YYYY"
+                            className={`border`}
+                            required={true}
+                            onChangeListener={(e) => { setDate(e.target.value) }} />
                     </div>
                     <div className={styles.cadre}>
                         <div className={styles.inputs}>
                             <LocationEdit />
                             <span>Select your location</span>
                         </div>
-                        <Input type="text" name="location" hint="e.g Beirut" className={`border`} required={false} onChangeListener={() => { }} />
+                        <Input type="text"
+                            name="location"
+                            hint="e.g Beirut"
+                            className={`border`}
+                            required={true}
+                            onChangeListener={(e) => { setLocation(e.target.value) }} />
                     </div>
                     <div className={styles.cadre}>
                         <div className={styles.inputs}>
@@ -69,20 +101,32 @@ const AddMessage = () => {
                             <span>Privacy</span>
                         </div>
                         <div>
-                            <input type="checkbox" name="private" checked={privacy.private} onChange={handlePrivacyChange} className={styles.option} />
+                            <input type="checkbox"
+                                name="private"
+                                onChange={setPrivacy("private")}
+                                className={styles.option} />
+
                             <label>Private</label>
 
-                            <input type="checkbox" name="public" checked={privacy.public} onChange={handlePrivacyChange} className={styles.option} />
+                            <input type="checkbox"
+                                name="public"
+                                onChange={setPrivacy("public")}
+                                className={styles.option} />
+
                             <label>Public </label>
 
-                            <input type="checkbox" name="unlisted" checked={privacy.unlisted} onChange={handlePrivacyChange} className={styles.option} />
+                            <input type="checkbox"
+                                name="unlisted"
+                                onChange={setPrivacy("unlisted")}
+                                className={styles.option} />
+
                             <label>Unlisted</label>
                         </div>
                     </div>
-                    <Button title="Save message" className={`${styles.btn} main-color text-color`} onClickListener={SubmitEvent} />
+                    <Button title="Save message" className={`${styles.btn} main-color text-color`} onClickListener={submitForm} />
                 </div>
             </form>
-            <Footer/>
+            <Footer />
         </div>
     );
 }
