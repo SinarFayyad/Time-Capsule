@@ -21,17 +21,19 @@ const AddMessage = () => {
         unlisted: false,
     });
 
+    const id = localStorage.getItem("id");
     const submitForm = async () => {
         const res = await axios.post("http://localhost:8000/api/addMessage", {
-            "title": title,
-            "message": message,
-            "mood": mood,
-            "privacy": privacy,
-            "media": media,
-            "color": "white",
-
-
-
+            "user_id": {id}, 
+            "title":title,
+            "color":"white",
+            "mood":mood,
+            "message" :message,
+            "audio":null, 
+            "media":null,
+            "reveal_date":date,
+            "location":location, 
+            "privacy":privacy,
         });
 
     }
@@ -103,21 +105,21 @@ const AddMessage = () => {
                         <div>
                             <input type="checkbox"
                                 name="private"
-                                onChange={setPrivacy("private")}
+                                onChange={(e) => setPrivacy(prev => ({ ...prev, private: e.target.checked }))}
                                 className={styles.option} />
 
                             <label>Private</label>
 
                             <input type="checkbox"
                                 name="public"
-                                onChange={setPrivacy("public")}
+                                onChange={(e) => setPrivacy(prev => ({ ...prev, public: e.target.checked }))}
                                 className={styles.option} />
 
                             <label>Public </label>
 
                             <input type="checkbox"
                                 name="unlisted"
-                                onChange={setPrivacy("unlisted")}
+                                onChange={(e) => setPrivacy(prev => ({ ...prev, unlisted: e.target.checked }))}
                                 className={styles.option} />
 
                             <label>Unlisted</label>

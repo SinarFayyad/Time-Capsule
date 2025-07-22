@@ -146,3 +146,7 @@
     align-items: center;
     gap: 2em;
 }
+
+.selected {
+    color:rgb(178, 42, 212);
+}
