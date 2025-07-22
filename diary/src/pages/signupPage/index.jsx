@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import Input from '../../Components/Input/index'
 import Button from '../../Components/Button/index'
 import { Mail, LockKeyhole, UserRound } from 'lucide-react'
+import ErrorMessage from '../../Components/Error Message'
 
 const SignUpPage = () => {
 
@@ -18,6 +19,13 @@ const SignUpPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Password length validation
+        if (!password || password.length < 6) {
+            setErrorMessage({ message: "Password must be more than 6 characters." });
+            return;
+        }
+
         try {
             const res = await axios.post("http://localhost:8000/api/register", {
                 username: username,
@@ -27,11 +35,18 @@ const SignUpPage = () => {
 
             if (res.status === 200) {
                 navigate("/mainPage");
-            } else {
-                setErrorMessage("Sign up failed");
             }
         } catch (error) {
-            setErrorMessage("Sign up failed: " + error.message);
+            if (error.response) {
+                // Custom error message for user already exists
+                if (error.response.status === 409 || error.response.status === 422) {
+                    setErrorMessage({ message: "You already have an account, try to login" });
+                } else {
+                    setErrorMessage({ message: error.message, code: error.response.status });
+                }
+            } else {
+                setErrorMessage({ message: error.message });
+            }
         }
     };
 
@@ -86,16 +101,18 @@ const SignUpPage = () => {
                         />
                     </form>
 
-                    {errorMessage && (
-                        <div className={styles.errorMessage}>
-                            {errorMessage}
-                        </div>
-                    )}
+
 
                 </div>
             </div>
 
-
+            {errorMessage && (
+                <ErrorMessage
+                    message={errorMessage.message || errorMessage}
+                    errorCode={errorMessage.code}
+                    onClose={() => setErrorMessage('')}
+                />
+            )}
         </div>
 
     );

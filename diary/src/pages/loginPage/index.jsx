@@ -19,6 +19,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
             const res = await axios.post("http://localhost:8000/api/login", {
                 email: email,
@@ -27,12 +28,17 @@ const LoginPage = () => {
 
             if (res.status === 200) {
                 navigate("/mainPage");
-            } else {
-                setErrorMessage({ message: "Login failed", code: res.status });
             }
         } catch (error) {
             if (error.response) {
-                setErrorMessage({ message: error.message, code: error.response.status });
+                // Custom error messages based on status code
+                if (error.response.status === 401) {
+                    setErrorMessage({ message: "Wrong password" });
+                } else if (error.response.status === 404) {
+                    setErrorMessage({ message: "You don't have an account, try to sign up" });
+                } else {
+                    setErrorMessage({ message: error.message, code: error.response.status });
+                }
             } else {
                 setErrorMessage({ message: error.message });
             }
@@ -64,7 +70,7 @@ const LoginPage = () => {
                             hint='********'
                             onChangeListener={(e) => { setPassword(e.target.value) }}
                         />
-                        <a href="">Forget password</a>
+                        {/* <a href="">Forget password</a> */}
 
                         <Button
                             title="Login"
