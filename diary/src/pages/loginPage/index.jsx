@@ -31,11 +31,18 @@ const LoginPage = () => {
             }
         } catch (error) {
             if (error.response) {
-                // Custom error messages based on status code
+                // Log backend error message for debugging
+                console.log("Backend error message:", error.response.data?.message || '');
+                // Custom error messages based on backend error message
+                const backendMessage = error.response.data?.message || '';
                 if (error.response.status === 401) {
-                    setErrorMessage({ message: "Wrong password" });
-                } else if (error.response.status === 404) {
-                    setErrorMessage({ message: "You don't have an account, try to sign up" });
+                    if (backendMessage.toLowerCase().includes('user not found') || backendMessage.toLowerCase().includes('no account')) {
+                        setErrorMessage({ message: "You don't have an account, try to sign up" });
+                    } else if (backendMessage.toLowerCase().includes('wrong password')) {
+                        setErrorMessage({ message: "Wrong password" });
+                    } else {
+                        setErrorMessage({ message: backendMessage || "Unauthorized access" });
+                    }               
                 } else {
                     setErrorMessage({ message: error.message, code: error.response.status });
                 }
