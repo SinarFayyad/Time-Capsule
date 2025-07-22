@@ -1,15 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Message from "../../Components/Message/index";
+import styles from './style.module.css'
 
 const Messages = () => {
   const [Messages, setMessages] = useState([]);
 
   const loadMessages = async () => {
-    const res = await axios.get("http://localhost:8000/api/messages/1");
-
-    console.log(res.data.payload);
-    setMessages(res.data.payload);
+    const res = await axios.get("http://localhost:8000/api/messages/4");
+    let message = setMessages(res.data.payload);
   };
 
   useEffect(() => {
@@ -17,11 +16,10 @@ const Messages = () => {
   }, []);
 
   return (
-    <div className="MessageContainer">
+    <div className={styles.container}>
         {Messages.map((message) => (
-          <Message content={message.content}/>
+          <Message title={message.title} message={message.message} media={message.media} mood={message.mood} />
         ))}
-      
     </div> 
   );
 };
