@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import styles from './style.module.css'
-import Button from '../../Components/Button/index'
-import Input from '../../Components/Input/index'
-import { useNavigate } from 'react-router-dom'
-import { Mail, LockKeyhole } from 'lucide-react'
-import Logo from '../../Components/Logo/index'
 import axios from 'axios'
+import styles from './style.module.css'
+import { useNavigate } from 'react-router-dom'
+import Logo from '../../Components/Logo/index'
+import Input from '../../Components/Input/index'
+import { Mail, LockKeyhole } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import Button from '../../Components/Button/index'
+import ErrorMessage from '../../Components/Error Message/index'
+
 
 const LoginPage = () => {
 
@@ -26,10 +28,14 @@ const LoginPage = () => {
             if (res.status === 200) {
                 navigate("/mainPage");
             } else {
-                setErrorMessage("Login failed");
+                setErrorMessage({ message: "Login failed", code: res.status });
             }
         } catch (error) {
-            setErrorMessage("Login failed: " + error.message);
+            if (error.response) {
+                setErrorMessage({ message: error.message, code: error.response.status });
+            } else {
+                setErrorMessage({ message: error.message });
+            }
         }
     };
 
@@ -67,9 +73,11 @@ const LoginPage = () => {
                         />
                     </form>
                     {errorMessage && (
-                        <div className={styles.errorMessage}>
-                            {errorMessage}
-                        </div>
+                        <ErrorMessage
+                            message={errorMessage.message || errorMessage}
+                            errorCode={errorMessage.code}
+                            onClose={() => setErrorMessage('')}
+                        />
                     )}
                 </div>
             </div>
