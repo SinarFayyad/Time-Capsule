@@ -1,6 +1,13 @@
+.container{
+    display: flex;
+    align-items: center;
+    margin:0;
+    padding:0;
+}
+
 .message {
-    width: 90%;
-    height: 25em;
+    width: 100%;
+    height: 100%;
     border: 1px solid rgb(178, 42, 212);
     border-radius: 8px;
     padding: 1em;
@@ -16,7 +23,7 @@
     flex-direction: row;
     justify-content: space-between;
     font-size: 1.2em;
-    text-align: center;
+    text-align: left;
     align-items: center;
     padding: 0.5em 1em;
 }
@@ -54,10 +61,13 @@
     color: rgb(0, 0, 0);
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
+    align-items: center;
+    gap: 1em;
+    margin: 0;
+    padding: 0.1em;
 }
 
 .iconLabelRow {
@@ -66,6 +76,7 @@
     align-items: center;
     gap: 0.5em;
 }
+
 .privacy {
     border: none;
     padding: 0;
@@ -91,16 +102,17 @@
     gap: 1em;
 }
 
-.option{
-    width:1.2em;
-    height:1.2em;
-    margin:0.3em 0.3em 0.3em 0;
+.option {
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 0.4em 0 2em;
 }
 
-.privacy > label{
-    color:black;
+.cadre{
+    margin:0;
+    padding:0;
+    gap:1.5em;
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -118,19 +130,19 @@
 
 .leftColumn {
     flex: 1;
-    width:50%;
+    width: 60vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    margin-top:2vw;
 }
 
 .rightColumn {
     flex: 1;
-    width:50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    text-align: left;
     gap: 2em;
 }

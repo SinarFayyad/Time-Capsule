@@ -2,7 +2,8 @@ import styles from './style.module.css'
 import Navbar from '../../Components/Navbar/index';
 import Input from '../../Components/Input/index';
 import Button from '../../Components/Button/index';
-import { Smile, Meh, Frown, Paperclip ,Captions, CalendarFold ,LocationEdit ,FolderLock} from 'lucide-react'
+import Footer from '../../Components/Footer/index'
+import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, FolderLock } from 'lucide-react'
 import { useState } from 'react';
 
 const AddMessage = () => {
@@ -41,25 +42,31 @@ const AddMessage = () => {
                     </div>
                 </div>
                 <div className={styles.rightColumn}>
-                    <div className={styles.inputs}>
-                        <Captions/>
-                        <span>Select title for your messages</span>
+                    <div className={styles.cadre}>
+                        <div className={styles.inputs}>
+                            <Captions />
+                            <span>Select title for your messages</span>
+                        </div >
                         <Input type="text" name="title" hint="e.g Good memories" className={`border`} required={false} onChangeListener={() => { }} />
-                    </div >
-                    <div className={styles.inputs}>
-                        <CalendarFold/>
-                        <span>Choose the reveal date</span>
+                    </div>
+                    <div className={styles.cadre}>
+                        <div className={styles.inputs}>
+                            <CalendarFold />
+                            <span>Choose the reveal date</span>
+                        </div>
                         <Input type="date" name="revealDate" hint="MM/DD/YYYY" className={`border`} required={false} onChangeListener={() => { }} />
                     </div>
-                    <div className={styles.inputs}>
-                        <LocationEdit/>
-                        <span>Select your location</span>
+                    <div className={styles.cadre}>
+                        <div className={styles.inputs}>
+                            <LocationEdit />
+                            <span>Select your location</span>
+                        </div>
                         <Input type="text" name="location" hint="e.g Beirut" className={`border`} required={false} onChangeListener={() => { }} />
                     </div>
-                    <fieldset className={styles.privacy}>
+                    <div className={styles.cadre}>
                         <div className={styles.inputs}>
-                        <FolderLock/>
-                        <span>Privacy</span>
+                            <FolderLock />
+                            <span>Privacy</span>
                         </div>
                         <div>
                             <input type="checkbox" name="private" checked={privacy.private} onChange={handlePrivacyChange} className={styles.option} />
@@ -71,10 +78,11 @@ const AddMessage = () => {
                             <input type="checkbox" name="unlisted" checked={privacy.unlisted} onChange={handlePrivacyChange} className={styles.option} />
                             <label>Unlisted</label>
                         </div>
-                    </fieldset>
+                    </div>
                     <Button title="Save message" className={`${styles.btn} main-color text-color`} onClickListener={SubmitEvent} />
                 </div>
             </form>
+            <Footer/>
         </div>
     );
 }
