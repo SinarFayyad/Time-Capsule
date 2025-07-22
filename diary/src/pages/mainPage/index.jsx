@@ -10,21 +10,23 @@ import Messages from '../Messages/index'
 function MainPage() {
 
   return (
-    <>
-      <Navbar />
-      <SearchBar />
-      <div className={styles.main_container}>
-        <h2 className={styles.title}>Your messages</h2>
-        <div className={styles.userMessages}>
-          <Messages/>
-        </div>
-        <h2 className={styles.title}>World's messages</h2>
-        <div className={styles.worldMessages}>
-          <Messages/>
+    <div className={styles.page_wrapper}>
+      <div className={styles.content_area}>
+        <Navbar />
+        <SearchBar />
+        <div className={styles.main_container}>
+          <h2 className={styles.title}>Your messages</h2>
+          <div className={styles.userMessages}>
+            <Messages/>
+          </div>
+          <h2 className={styles.title}>World's messages</h2>
+          <div className={styles.worldMessages}>
+            <Messages/>
+          </div>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 
 }

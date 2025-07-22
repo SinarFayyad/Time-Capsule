@@ -6,33 +6,17 @@
   width: 100%
 }
 
-.userMessages, .worldMessages{
-  width: 90%;
-  margin-top: 2em;
+.page_wrapper {
   display: flex;
-  border: none;
-  position: relative;
-  justify-content: space-around;
-  gap: 2vw;
-  padding-bottom:2vw;
-  margin-left:4em;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* .worldMessages{
-  width: 90%;
-  margin-top: 2em;
-  display: flex;
-  border: none;
-  position: relative;
-  justify-content: space-between;
-  gap: 2vw;
-  padding-bottom:2vw;
-  margin-left:4em;
-} */
+.content_area {
+  flex-grow: 1;
+}
 
 .title{
-  position: relative;
-  width:fit-content;
-  margin:0;
   margin-left:4em;
+  margin-top: 2em;
 }
