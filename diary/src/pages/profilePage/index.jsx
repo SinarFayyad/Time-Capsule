@@ -12,8 +12,6 @@ const ProfilePage = () => {
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
 
     const id = 1;
     // const id = localStorage.getItem("id");
@@ -50,7 +48,6 @@ const ProfilePage = () => {
             </div>
         );
     }
-
     return (
         <div className={styles.container}>
             <Navbar />
