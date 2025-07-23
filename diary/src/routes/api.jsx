@@ -1,4 +1,5 @@
 import LogOut from '../pages/logOut'
+import ViewMessage from '../pages/viewMessage'
 import MainPage from '../pages/mainPage/index'
 import EditProfile from '../pages/editProfile'
 import Profile from '../pages/profilePage/index'
@@ -8,18 +9,19 @@ import SignUpPage from '../pages/signupPage/index'
 import AddMessage from '../pages/addMessage/index'
 import LandingPage from '../pages/landingPage/index'
 
-
 const MyRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />}/>
             <Route path='/logOut' element= {<LogOut/>}/>
             <Route path='/profile' element={ <Profile/>}/>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/mainPage" element={<MainPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />}/>
+            <Route path="/mainPage" element={<MainPage />}/>
+            <Route path="/signup" element={<SignUpPage />}/>
             <Route path='/addMessage' element={<AddMessage/>}/>
             <Route path='/editProfile' element={ <EditProfile/>}/>
+            <Route path='/viewMessage' element={ <ViewMessage/>}/>
+
         </Routes>
     );
 };

@@ -33,7 +33,6 @@ const LoginPage = () => {
             }
         } catch (error) {
             if (error.response) {
-                const backendMessage = error.response.data?.message || '';
                 setErrorMessage({ message: error.message, code: error.response.status });
             }
         }

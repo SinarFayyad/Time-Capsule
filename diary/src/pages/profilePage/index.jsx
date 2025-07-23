@@ -23,8 +23,8 @@ const ProfilePage = () => {
                 setLoading(false);
 
                 if (res.status === 200) {
-                    localStorage.setItem('username', res.data.username);
-                    localStorage.setItem('email', res.data.email);
+                    localStorage.setItem('username', info.username);
+                    localStorage.setItem('email', info.email);
                 }
 
             } catch (err) {
