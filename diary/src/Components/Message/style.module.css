@@ -30,11 +30,21 @@
     font-size: 1em;
 }
 .content {
-    width:90%;
-    height:105px;
-    display: flex;
+    width:85%;
+    height:95px;
+    display: block;
     gap: 1vw;
-    padding: 1vw;
+    padding: 1.5vw;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.message {
+display: -webkit-box;
+-webkit-line-clamp: 5;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: normal;
+width: 100%;
 }
