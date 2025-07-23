@@ -6,7 +6,7 @@ const Message = ({ title, message, media, mood }) => {
     let emogi;
     if(mood == "happy"){
         emogi= <Smile/>
-    }else if(mood== "neutre"){
+    }else if(mood== "neutral"){
         emogi= <Meh/>
     }else if (mood == "sad" ){
         emogi= <Frown/>

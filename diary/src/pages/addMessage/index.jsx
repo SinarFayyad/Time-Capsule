@@ -1,14 +1,16 @@
-import styles from './style.module.css'
-import Navbar from '../../Components/Navbar/index';
-import Input from '../../Components/Input/index';
-import Button from '../../Components/Button/index';
-import Footer from '../../Components/Footer/index'
-import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, FolderLock } from 'lucide-react'
-import { useState } from 'react';
 import axios from 'axios'
+import { useState } from 'react'
+import styles from './style.module.css'
+import Input from '../../Components/Input/index'
+import Button from '../../Components/Button/index'
+import Footer from '../../Components/Footer/index'
+import Navbar from '../../Components/Navbar/index'
+import ErrorMessage from '../../Components/Error Message'
+import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, FolderLock } from 'lucide-react'
 
 const AddMessage = () => {
-    
+
+    const [errorMessage, setErrorMessage] = useState('');
     const [mood, setMood] = useState("");
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");
@@ -21,35 +23,42 @@ const AddMessage = () => {
     });
 
     const id = localStorage.getItem("id");
+
     const submitForm = async (e) => {
         e.preventDefault();
 
         console.log(date);
-        const res = await axios.post("http://localhost:8000/api/addMessage", {
-            "user_id":id, 
-            "title":title,
-            "color":"white",
-            "mood":mood,
-            "message" : message,
-            "audio":"null", 
-            "media":"null",
-            "reveal_date":date,
-            "location":location, 
-            "privacy":privacy
-        });
+        try {
+            const res = await axios.post("http://localhost:8000/api/addMessage", {
+                "user_id": id,
+                "title": title,
+                "color": "white",
+                "mood": mood,
+                "message": message,
+                "audio": "null",
+                "media": "null",
+                "reveal_date": date,
+                "location": location,
+                "privacy": privacy
+            });
+        } catch (error) {
+            if (error.response) {
+                setErrorMessage({ message: error.message, code: error.response.status });
+            }
+        }
 
     }
     return (
         <div className={styles.container}>
             <Navbar />
-            <form className={styles.form}>
+            <div className={styles.form}>
                 <div className={styles.leftColumn}>
                     <div className={`${styles.message} border`}>
                         <div className={styles.header}>
                             <p>Choose your mood</p>
                             <div className={styles.mood}>
                                 <Smile onClick={() => { setMood("happy") }} className={mood == "happy" && styles.selected} />
-                                <Meh onClick={() => { setMood("neutre") }} className={mood == "neutre" && styles.selected} />
+                                <Meh onClick={() => { setMood("neutral") }} className={mood == "neutral" && styles.selected} />
                                 <Frown onClick={() => { setMood("sad") }} className={mood == "sad" && styles.selected} />
                             </div>
                         </div>
@@ -129,7 +138,14 @@ const AddMessage = () => {
                     </div>
                     <Button title="Save message" className={`${styles.btn} main-color text-color`} onClickListener={submitForm} />
                 </div>
-            </form>
+                {errorMessage && (
+                    <ErrorMessage
+                        message={errorMessage.message || errorMessage}
+                        errorCode={errorMessage.code}
+                        onClose={() => setErrorMessage('')}
+                    />
+                )}
+            </div>
             <Footer />
         </div>
     );
