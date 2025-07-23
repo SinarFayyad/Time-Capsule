@@ -1,0 +1,152 @@
+.container{
+    display: flex;
+    align-items: center;
+    margin:0;
+    padding:0;
+}
+
+.message {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(178, 42, 212);
+    border-radius: 8px;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: fit-content;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2em;
+    text-align: left;
+    align-items: center;
+    padding: 0.5em 1em;
+}
+
+.mood {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    cursor: pointer;
+}
+
+.textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    resize: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    position: relative;
+}
+
+.paperclip {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    margin: 0;
+    padding: 0.1em;
+}
+
+.iconLabelRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.privacy {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-size: 1em;
+    color: #333;
+}
+
+.privacy-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.privacy-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.option {
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 0.4em 0 2em;
+}
+
+.cadre{
+    margin:0;
+    padding:0;
+    gap:1.5em;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2em 3em;
+    gap: 3em;
+}
+
+.leftColumn {
+    flex: 1;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:2vw;
+}
+
+.rightColumn {
+    flex: 1;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+}
+
+.selected {
+    color:rgb(178, 42, 212);
+}
