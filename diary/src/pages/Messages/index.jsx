@@ -14,10 +14,10 @@ const Messages = ({ content }) => {
 
       const id = localStorage.getItem("id");
       const res = await axios.get(`http://localhost:8000/api/messages/${id}`);
-      let message = setMessages(res.data.payload);
+      setMessages(res.data.payload);
     } else if (content == "allMessages") {
       const res = await axios.get("http://localhost:8000/api/messages")
-      let message = setMessages(res.data.payload);
+      setMessages(res.data.payload);
     }
   }
 
