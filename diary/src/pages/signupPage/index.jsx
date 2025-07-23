@@ -22,7 +22,7 @@ const SignUpPage = () => {
         e.preventDefault();
 
         // Password length validation
-        if (!password || password.length < 6) {
+        if (!password || password.length <= 6) {
             setErrorMessage({ message: "Password must be more than 6 characters." });
             return;
         }
@@ -43,7 +43,7 @@ const SignUpPage = () => {
         } catch (error) {
             if (error.response) {
                 // Custom error message for user already exists
-                if (error.response.status === 409 || error.response.status === 422) {
+                if (error.response.status === 409) {
                     setErrorMessage({ message: "You already have an account, try to login" });
                 } else {
                     setErrorMessage({ message: error.message, code: error.response.status });
