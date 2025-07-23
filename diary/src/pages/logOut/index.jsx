@@ -34,7 +34,7 @@ const LogOut = () => {
             <div className={styles.content}>
                 <div className={`${styles.box} border`}>
                     <div className={styles.header}>
-                        <h1>Log Out</h1>
+                        <h1 className={styles.title}>Log Out</h1>
                     </div>
                     <div className='divider'></div>
                     <p className={styles.text}>Are you sure you want to Log Out?</p>
