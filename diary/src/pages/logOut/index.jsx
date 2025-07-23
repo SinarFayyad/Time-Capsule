@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState} from 'react'
+import { useState } from 'react'
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/index'
@@ -33,19 +33,23 @@ const LogOut = () => {
             <Navbar />
             <div className={styles.content}>
                 <div className={`${styles.box} border`}>
-                    <h1>Log Out</h1>
+                    <div className={styles.header}>
+                        <h1>Log Out</h1>
+                    </div>
                     <div className='divider'></div>
-                    <p>Are you sure you want to Log Out?</p>
-                    <Button title="Yes" className={'main-color text-color'} onClickListener={() => logOut()} />
-                    <Button title="No" className={'main-color text-color'} onClickListener={() => navigate('/mainPage')} />
+                    <p className={styles.text}>Are you sure you want to Log Out?</p>
+                    <div className={styles.btns}>
+                        <Button title="Yes" className={'main-color text-color'} onClickListener={() => logOut()} />
+                        <Button title="No" className={'main-color text-color'} onClickListener={() => navigate('/mainPage')} />
+                    </div>
                 </div>
                 {errorMessage && (
-                        <ErrorMessage
-                            message={errorMessage.message || errorMessage}
-                            errorCode={errorMessage.code}
-                            onClose={() => setErrorMessage('')}
-                        />
-                    )}
+                    <ErrorMessage
+                        message={errorMessage.message || errorMessage}
+                        errorCode={errorMessage.code}
+                        onClose={() => setErrorMessage('')}
+                    />
+                )}
             </div>
             <Footer />
         </div>
