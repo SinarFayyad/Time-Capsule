@@ -57,7 +57,7 @@ const ViewMessage = () => {
                             </div>
                         </div>
                         <div className='divider'></div>
-                        <div className={`${styles.infoItem} ${styles.Message}`}>
+                        <div className={`${styles.infoItem} ${styles.text}`}>
                             <p className={styles.value}>{info.message}</p>
                         </div>
                         <div className='divider'></div>
