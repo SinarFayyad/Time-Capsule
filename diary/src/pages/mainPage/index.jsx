@@ -15,7 +15,7 @@ function MainPage() {
       <Navbar />
       <div className={styles.content}>
         <h2 className={styles.title}>Your messages</h2>
-        <div>
+        <div className={styles.yourMessages}>
           <h3 className={styles.subtitle}>Upcoming</h3>
           <Capsules />
           <h3 className={styles.subtitle}>Memories</h3>
