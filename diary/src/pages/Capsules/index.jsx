@@ -26,8 +26,8 @@ const Capsules = ({ content }) => {
   }, []);
 
   return (
-    <div className={`${styles.container} border`}>
-      {Capsules.length === 0 ? null :
+    <div className={`${styles.container}`}>
+      {Capsules.length === 0 ? <></>:
         Capsules.map = ((capsule) => {
           <Capsule key={capsule.id}
             title={capsule.title}
