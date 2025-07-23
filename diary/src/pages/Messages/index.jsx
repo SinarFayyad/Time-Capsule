@@ -37,14 +37,14 @@ const Messages = ({ content, filteredMessages }) => {
     }
   }, [content, filteredMessages]);
 
-  const messagesToRender = filteredMessages || Messages;
+  const messages = filteredMessages || Messages;
 
   return (
 
     <div className={styles.container}>
-      {messagesToRender.length === 0 ?
+      {messages.length === 0 ?
         (<p>No messages yet</p>) :
-        (messagesToRender.map((message) => (
+        (messages.map((message) => (
           <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
             key={message.id}
             title={message.title}

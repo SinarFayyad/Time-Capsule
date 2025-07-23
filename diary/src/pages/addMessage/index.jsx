@@ -40,8 +40,7 @@ const AddMessage = () => {
             });
 
             if(res.status==200){
-                <SuccessMessage message="Message Added Successfully"/>
-                navigate('/mainPage');
+                <SuccessMessage message="Message Added Successfully" onClose={navigate('/mainPage')}/>
             }
         } catch (error) {
             if (error.response) {

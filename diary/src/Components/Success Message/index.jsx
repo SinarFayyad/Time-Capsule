@@ -1,6 +1,6 @@
 import styles from './style.module.css'
 
-const SuccessMessage = ({ message }) => {
+const SuccessMessage = ({ message , onClose}) => {
 
     return (
         <div className={styles.container}>
@@ -8,6 +8,7 @@ const SuccessMessage = ({ message }) => {
                 <h2 className={styles.message}>{message}</h2>
                 <button
                     className={styles.closeButton}
+                    onClose={onClose}
                 >
                     ×
                 </button>
