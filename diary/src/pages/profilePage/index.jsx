@@ -18,9 +18,15 @@ const ProfilePage = () => {
     let id =1;
     const fetchUserData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/user/${id}`);
-            let info = setInfo(response.data.payload);
+            const res = await axios.get(`http://localhost:8000/api/user/${id}`);
+            let info = setInfo(res.data.payload);
             setLoading(false);
+
+            if (res.status === 200) {
+                localStorage.setItem('username', res.data.username);
+                localStorage.setItem('email', res.data.email);
+            }
+
         } catch (err) {
             setError('Failed to load user data!');
             setLoading(false);
@@ -56,7 +62,9 @@ const ProfilePage = () => {
                     <div className='divider'></div>
                     <p><strong>Username:</strong> {info.username}</p>
                     <p><strong>Email:</strong> {info.email}</p>
-                    <Button title="Edit" className={'main-color text-color'} onClickListener={()=>navigate('/editProfile')}/>
+                    <Button title="Edit" 
+                            className={'main-color text-color'} 
+                            onClickListener={()=>navigate('/editProfile')}/>
                 </div>
             </div>
             <Footer/>

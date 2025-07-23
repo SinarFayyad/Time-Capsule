@@ -18,25 +18,29 @@
 }
 
 .edit {
-    width: 40%;
-    height: 70%;
+    width:40%;
+    height:70%;
+    gap:1em;
+    font-size: 20px;
+    border-radius: 2em;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: left;
+    justify-content: center;
     align-items: center;
-    margin: auto;
-    border-radius: 2em;
-    gap:2em;
+    text-align: left;
 }
 
-form{
+
+.inputs{
     display: flex;
     gap:2vw;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .labels{
     display: flex;
     flex-direction: column;
-    gap:1em;
+    gap:0.5em;
 }

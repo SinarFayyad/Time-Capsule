@@ -6,26 +6,30 @@ import Navbar from '../../Components/Navbar'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../Components/Button/index'
 import Footer from '../../Components/Footer/index'
+import ErrorMessage from '../../Components/Error Message'
 
 const EditProfile = () => {
-
-    const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
+ 
+    const [email, setEmail] = useState(localStorage.getItem("email"));
+    const [username, setUsername] = useState(localStorage.getItem("username"));
     const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
     const id = localStorage.getItem("id");
+
     const submitEdits = async (e) => {
+
         e.preventDefault();
         try {
             const res = await axios.post(`http://localhost:8000/api/updateUser/${id}`, {
-                username: username,
+                username: username ,
                 email: email
             });
 
-            if (res.status === 200) {
-                navigate("/profile");
+            if (res.status == 200) {
+                navigate('/Profile');
             }
+
         } catch (error) {
             if (error.response) {
                 const backendMessage = error.response.data?.message || '';
@@ -39,14 +43,16 @@ const EditProfile = () => {
             <Navbar />
             <div className={styles.content}>
                 <div className={`${styles.edit} border`}>
-                    <h1 className={styles.title}>Edit Profile</h1>
-                    <form>
+                    <h2>Edit Profile</h2>
+                    <div className='divider'></div>
+                    <div className={styles.inputs}>
                         <div className={styles.labels}>
                             <label>Username</label>
 
                             <Input type="text"
                                 name='username'
                                 hint='e.g. Joe Doe'
+                                required={false}
                                 onChangeListener={(e) => { setUsername(e.target.value) }} />
                         </div>
                         <div className={styles.labels}>
@@ -55,15 +61,16 @@ const EditProfile = () => {
                             <Input type="text"
                                 name='email'
                                 hint='e.g. JoeDoe@gmail.com'
+                                required={false}
                                 onChangeListener={(e) => { setEmail(e.target.value) }} />
                         </div>
                         <Button
                             title="Save"
-                            className={`${styles.btn} main-color text-color`}
+                            className={`main-color text-color`}
                             type="submit"
-                            onClickListener={() => submitEdits}
+                            onClickListener={submitEdits}
                         />
-                    </form>
+                    </div>
 
                 </div>
                 {errorMessage && (
