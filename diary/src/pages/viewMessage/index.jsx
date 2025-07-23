@@ -52,7 +52,7 @@ const ViewMessage = () => {
                     <div className={`${styles.message} border`}>
                         <div className={styles.header}>
                             <p className={styles.title}>{info.title}</p>
-                            <div className={`${styles.mood} main-color`}>
+                            <div className={`${styles.mood}`}>
                                 <MoodEmoji mood={info.mood} />
                             </div>
                         </div>
