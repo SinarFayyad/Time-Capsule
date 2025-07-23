@@ -15,22 +15,25 @@ const ProfilePage = () => {
 
     const id = localStorage.getItem("id");
 
-    const fetchUserData = async () => {
-        try {
-            const res = await axios.get(`http://localhost:8000/api/user/${id}`);
-            let info = setInfo(res.data.payload);
-            setLoading(false);
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const res = await axios.get(`http://localhost:8000/api/user/${id}`);
+                info = setInfo(res.data.payload);
+                setLoading(false);
 
-            if (res.status === 200) {
-                localStorage.setItem('username', res.data.username);
-                localStorage.setItem('email', res.data.email);
+                if (res.status === 200) {
+                    localStorage.setItem('username', res.data.username);
+                    localStorage.setItem('email', res.data.email);
+                }
+
+            } catch (err) {
+                setError('Failed to load user data!');
+                setLoading(false);
             }
-
-        } catch (err) {
-            setError('Failed to load user data!');
-            setLoading(false);
-        }
-    };
+        };
+        fetchUserData();
+    }, []);
 
     if (loading) {
         return (

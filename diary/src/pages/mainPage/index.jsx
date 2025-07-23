@@ -10,7 +10,7 @@ function MainPage() {
     <div className={styles.page_wrapper}>
       <div className={styles.content_area}>
         <Navbar />
-        <SearchBar />
+        {/* <SearchBar /> */}
         <div className={styles.main_container}>
           <h2 className={styles.title}>Your messages</h2>
           <div className={styles.userMessages}>
