@@ -7,6 +7,7 @@ import Input from '../../Components/Input/index'
 import Button from '../../Components/Button/index'
 import { Mail, LockKeyhole, UserRound } from 'lucide-react'
 import ErrorMessage from '../../Components/Error Message'
+import SuccessMessage from '../../Components/Success Message'
 
 const SignUpPage = () => {
 
@@ -36,6 +37,7 @@ const SignUpPage = () => {
             if (res.status === 200) {
                 localStorage.setItem('token', res.data.payload.token);
                 localStorage.setItem('id', res.data.payload.id);
+                <SuccessMessage message="User created successfully" />
                 navigate("/mainPage");
             }
         } catch (error) {

@@ -6,10 +6,13 @@ import Button from '../../Components/Button/index'
 import Footer from '../../Components/Footer/index'
 import Navbar from '../../Components/Navbar/index'
 import ErrorMessage from '../../Components/Error Message'
+import SuccessMessage from '../../Components/Success Message'
 import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, FolderLock } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const AddMessage = () => {
 
+    const navigate = useNavigate();
     const [mood, setMood] = useState("");
     const [date, setDate] = useState("");
     const [title, setTitle] = useState("");
@@ -22,7 +25,6 @@ const AddMessage = () => {
 
     const submitForm = async (e) => {
 
-        console.log(date);
         try {
             const res = await axios.post("http://localhost:8000/api/addMessage", {
                 "user_id": id,
@@ -36,12 +38,16 @@ const AddMessage = () => {
                 "location": location,
                 "privacy": privacy
             });
+
+            if(res.status==200){
+                <SuccessMessage message="Message Added Successfully"/>
+                navigate('/mainPage');
+            }
         } catch (error) {
             if (error.response) {
                 setErrorMessage({ message: error.message, code: error.response.status });
             }
         }
-
     }
     return (
         <div className={styles.container}>

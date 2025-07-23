@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../../Components/Button/index'
 import Footer from '../../Components/Footer/index'
 import ErrorMessage from '../../Components/Error Message'
+import SuccessMessage from '../../Components/Success Message'
 
 const EditProfile = () => {
  
@@ -27,6 +28,7 @@ const EditProfile = () => {
             });
 
             if (res.status === 200) {
+                <SuccessMessage message="Profile updated successfully"/>
                 navigate('/Profile');
             }
 
