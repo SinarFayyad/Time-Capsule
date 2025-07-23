@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState ,useEffect } from 'react';
 import Input from '../Input';
 import styles from './style.module.css';
-import { useState , useEffect} from 'react';
 import axios from 'axios'
 import ErrorMessage from '../../Components/Error Message/index'
 import Button from '../Button/index'
@@ -29,8 +28,10 @@ const Filtrations = ({ onFilter }) => {
     }
 
     useEffect(() => {
-        filter();
-    }, []);
+        if (mood !== '' || location !== '') {
+            filter();
+        }
+    }, [mood, location]);
 
     return (
         <div className={styles.container}>
