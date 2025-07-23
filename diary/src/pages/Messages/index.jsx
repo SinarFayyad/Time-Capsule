@@ -33,14 +33,13 @@ const Messages = ({ content }) => {
     loadMessages();
   }, []);
 
-  const message_id = 1;
   return (
 
     <div className={styles.container}>
       {Messages.length === 0 ?
         (<p>No messages yet</p>) :
         (Messages.map((message) => (
-          <Message onClick={() => navigate(`/viewMessage/${message_id}`)}
+          <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
             key={message.id}
             title={message.title}
             message={message.message}

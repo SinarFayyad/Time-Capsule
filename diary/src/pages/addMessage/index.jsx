@@ -16,16 +16,11 @@ const AddMessage = () => {
     const [message, setMessage] = useState("");
     const [location, setLocation] = useState("");
     const [errorMessage, setErrorMessage] = useState('');
-    const [privacy, setPrivacy] = useState({
-        private: false,
-        public: false,
-        unlisted: false,
-    });
+    const [privacy, setPrivacy] = useState("");
 
     const id = localStorage.getItem("id");
 
     const submitForm = async (e) => {
-        e.preventDefault();
 
         console.log(date);
         try {
@@ -51,7 +46,7 @@ const AddMessage = () => {
     return (
         <div className={styles.container}>
             <Navbar />
-            <form className={styles.form}>
+            <div className={styles.form}>
                 <div className={styles.leftColumn}>
                     <div className={`${styles.message} border`}>
                         <div className={styles.header}>
@@ -66,7 +61,9 @@ const AddMessage = () => {
                         <div className={styles.divider}></div>
 
                         <div className={styles.content}>
-                            <textarea className={styles.textarea} placeholder="Write your message" onChangeListener={(e) => { setMessage(e.target.value) }}></textarea>
+                            <textarea className={styles.textarea} 
+                                placeholder="Write your message" 
+                                onChange={(e) => { setMessage(e.target.value) }}></textarea>
                             <Paperclip className={styles.paperclip} />
                         </div>
                     </div>
@@ -116,21 +113,21 @@ const AddMessage = () => {
                         <div>
                             <input type="checkbox"
                                 name="private"
-                                onChange={(e) => setPrivacy(prev => ({ ...prev, private: e.target.checked }))}
+                                onChange={(e) => setPrivacy("private")}
                                 className={styles.option} />
 
                             <label>Private</label>
 
                             <input type="checkbox"
                                 name="public"
-                                onChange={(e) => setPrivacy(prev => ({ ...prev, public: e.target.checked }))}
+                                onChange={(e) => setPrivacy("public")}
                                 className={styles.option} />
 
                             <label>Public </label>
 
                             <input type="checkbox"
                                 name="unlisted"
-                                onChange={(e) => setPrivacy(prev => ({ ...prev, unlisted: e.target.checked }))}
+                                onChange={(e) => setPrivacy("unlisted")}
                                 className={styles.option} />
 
                             <label>Unlisted</label>
@@ -138,7 +135,7 @@ const AddMessage = () => {
                     </div>
                     <Button title="Save message" 
                             className={`${styles.btn} main-color text-color`} 
-                            onClickListener={()=>submitForm} />
+                            onClickListener={()=>submitForm()} />
                 </div>
                 {errorMessage && (
                     <ErrorMessage
@@ -147,7 +144,7 @@ const AddMessage = () => {
                         onClose={() => setErrorMessage('')}
                     />
                 )}
-            </form>
+            </div>
             <Footer />
         </div>
     );

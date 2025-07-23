@@ -20,7 +20,7 @@ const MyRoutes = () => {
             <Route path="/signup" element={<SignUpPage />}/>
             <Route path='/addMessage' element={<AddMessage/>}/>
             <Route path='/editProfile' element={ <EditProfile/>}/>
-            <Route path='/viewMessage' element={ <ViewMessage/>}/>
+            <Route path='/viewMessage/:message_id' element={ <ViewMessage/>}/>
 
         </Routes>
     );

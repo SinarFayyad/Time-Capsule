@@ -5,6 +5,7 @@ import { Smile, Meh, Frown } from 'lucide-react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import ErrorMessage from '../../Components/Error Message'
+import { useLocation } from 'react-router-dom'
 
 
 const MoodEmoji = ({ mood, className }) => {
@@ -20,24 +21,32 @@ const MoodEmoji = ({ mood, className }) => {
     }
 }
 
-const ViewMessage = async () => {
 
+const ViewMessage = () => {
 
+    const location = useLocation()
     const [info, setInfo] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
     // const message_id = localStorage.getItem("id");
-    const message_id = 1;
-    try {
-        const res = await axios.get(`http://localhost:8000/api/message/${message_id}`);
-        if (res.status === 200) {
-            info = res.data.payload;
-        }
-    } catch (error) {
-        if (error.response) {
-            setErrorMessage({ message: error.message, code: error.response.status });
+
+    const getMessage = async () => {
+        try {
+            const splitted = location.pathname.split('/');
+            const message_id = splitted[splitted.length - 1];
+            const res = await axios.get(`http://localhost:8000/api/message/${message_id}`);
+            if (res.status === 200) {
+                info = res.data.payload;
+            }
+        } catch (error) {
+            if (error.response) {
+                setErrorMessage({ message: error.message, code: error.response.status });
+            }
         }
     }
+    useEffect(() => {
+        getMessage();
+    }, []);
 
     return (
         <div className={styles.container}>
