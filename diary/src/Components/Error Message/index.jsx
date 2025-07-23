@@ -2,7 +2,7 @@ import styles from './style.module.css'
 
 const ErrorMessage = ({ message, errorCode, onClose }) => {
 
-    const getFriendlyMessage = () => {
+    const showError = () => {
         if (errorCode) {
             switch (errorCode) {
                 case 401:
@@ -21,7 +21,7 @@ const ErrorMessage = ({ message, errorCode, onClose }) => {
     return (
         <div className={styles.container}>
             <div className={`${styles.error} main-color`}>
-                {getFriendlyMessage()}
+                {showError()}
                 <button
                     className={styles.closeButton}
                     onClick={onClose}
