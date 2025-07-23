@@ -9,17 +9,17 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 5px;
-    height: 15px;
+    padding: 2px;
+    height: 25px;
     margin-top:6px;
 }
 
 .title {
     width: 80%;
-    height: 15px;
+    height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

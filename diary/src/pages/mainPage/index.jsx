@@ -21,10 +21,12 @@ function MainPage() {
           <h3 className={styles.subtitle}>Memories</h3>
           <Messages content={"myMessages"} />
         </div>
-        <h2 className={styles.title}>World's messages</h2>
-        <div>
-          <Filtrations onFilter={setFilteredMessages} />
-          <Messages content={'allMessages'} filteredMessages={filteredMessages} />
+        <div className={styles.people}>
+          <h2 className={styles.title}>World's messages</h2>
+          <div>
+            <Filtrations onFilter={setFilteredMessages} />
+            <Messages content={'allMessages'} filteredMessages={filteredMessages} />
+          </div>
         </div>
       </div>
       <Footer />
