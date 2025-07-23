@@ -26,13 +26,12 @@ const EditProfile = () => {
                 email: email
             });
 
-            if (res.status == 200) {
+            if (res.status === 200) {
                 navigate('/Profile');
             }
 
         } catch (error) {
             if (error.response) {
-                const backendMessage = error.response.data?.message || '';
                 setErrorMessage({ message: error.message, code: error.response.status });
             }
         }
