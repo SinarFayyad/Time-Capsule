@@ -8,19 +8,18 @@ import ErrorMessage from '../../Components/Error Message'
 import { useLocation } from 'react-router-dom'
 
 
-const MoodEmoji = ({ mood, className }) => {
+const MoodEmoji = ({ mood }) => {
     switch (mood) {
         case 'happy':
-            return <Smile className={className} />
+            return <Smile />
         case 'sad':
-            return <Meh className={className} />
+            return <Meh />
         case 'angry':
-            return <Frown className={className} />
+            return <Frown />
         default:
             return null
     }
 }
-
 
 const ViewMessage = () => {
 
@@ -28,15 +27,13 @@ const ViewMessage = () => {
     const [info, setInfo] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
-    // const message_id = localStorage.getItem("id");
-
     const getMessage = async () => {
         try {
             const splitted = location.pathname.split('/');
             const message_id = splitted[splitted.length - 1];
             const res = await axios.get(`http://localhost:8000/api/message/${message_id}`);
             if (res.status === 200) {
-                info = res.data.payload;
+                info = setInfo(res.data.payload);
             }
         } catch (error) {
             if (error.response) {
@@ -52,16 +49,18 @@ const ViewMessage = () => {
         <div className={styles.container}>
             <Navbar />
             <div className={styles.content}>
-                <div className={styles.leftColumn}>
                     <div className={`${styles.message} border`}>
                         <div className={styles.header}>
                             <p className={styles.title}>{info.title}</p>
                             <div className={`${styles.mood} main-color`}>
-                                <MoodEmoji mood={info.mood} className={styles.emoji} />
+                                <MoodEmoji mood={info.mood} />
                             </div>
                         </div>
                         <div className='divider'></div>
-                        <div className={styles.divider}></div>
+                        <div className={`${styles.infoItem} ${styles.Message}`}>
+                            <p className={styles.value}>{info.message}</p>
+                        </div>
+                        <div className='divider'></div>
                         <div className={styles.infoSection}>
                             <div className={styles.infoItem}>
                                 <label className={styles.label}>Location</label>
@@ -69,7 +68,7 @@ const ViewMessage = () => {
                             </div>
                             <div className={styles.infoItem}>
                                 <label className={styles.label}>Date</label>
-                                <p className={styles.value}>{info.date}</p>
+                                <p className={styles.value}>{info.reveal_date}</p>
                             </div>
                             <div className={styles.infoItem}>
                                 <label className={styles.label}>Privacy</label>
@@ -77,7 +76,6 @@ const ViewMessage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
                 {errorMessage && (
                     <ErrorMessage
                         message={errorMessage.message || errorMessage}
