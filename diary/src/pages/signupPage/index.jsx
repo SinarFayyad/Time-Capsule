@@ -1,6 +1,6 @@
 import axios from 'axios'
 import styles from './style.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Logo from '../../Components/Logo/index'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../Components/Input/index'
