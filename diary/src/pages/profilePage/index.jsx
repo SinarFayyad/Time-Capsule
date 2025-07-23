@@ -13,8 +13,6 @@ const ProfilePage = () => {
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
 
-    
-
     const fetchUserData = async (e) => {
 
         const id = localStorage.getItem("id");
@@ -29,8 +27,10 @@ const ProfilePage = () => {
             }
 
         } catch (err) {
-            setError('Failed to load user data!');
-            setLoading(false);
+            if (error.response) {
+                setError({ message: error.message, code: error.response.status });
+                setLoading(false);
+            }
         }
     };
 
