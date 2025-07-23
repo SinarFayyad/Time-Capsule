@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../Input';
 import styles from './style.module.css';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import axios from 'axios'
 import ErrorMessage from '../../Components/Error Message/index'
 import Button from '../Button/index'
@@ -28,6 +28,10 @@ const Filtrations = ({ onFilter }) => {
         }
     }
 
+    useEffect(() => {
+        filter();
+    }, []);
+
     return (
         <div className={styles.container}>
             <select
@@ -53,7 +57,7 @@ const Filtrations = ({ onFilter }) => {
             <Button
                 title="Filter"
                 className={`main-color text-color`}
-                onClickListener={(e) =>filter()}
+                onClickListener={(e) => filter()}
             />
             {errorMessage && (
                 <ErrorMessage
