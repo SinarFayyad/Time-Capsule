@@ -34,8 +34,8 @@ const SignUpPage = () => {
             });
 
             if (res.status === 200) {
-                localStorage.setItem('token', res.data.payload.token);
-                localStorage.setItem('id', res.data.payload.id);
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('id', res.data.id);
                 navigate("/mainPage");
             }
         } catch (error) {

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../../Components/Logo/index'
 import Input from '../../Components/Input/index'
 import { Mail, LockKeyhole } from 'lucide-react'
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import Button from '../../Components/Button/index'
 import ErrorMessage from '../../Components/Error Message/index'
 
@@ -81,12 +81,12 @@ const LoginPage = () => {
                 </div>
             </div>
             <div className={styles.secondSection}>
-                <a onClick={() => { navigate("/signUp") }}>
+                <div onClick={() => { navigate("/signUp") }}>
                     <div className={`${styles.circle} main-color text-color`}>
                         <h1 className={styles.title}>Sign up</h1>
                         <p className={styles.sentence}>You don't have an account?</p>
                     </div>
-                </a>
+                </div>
             </div>
 
         </div>
