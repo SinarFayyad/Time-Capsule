@@ -19,7 +19,7 @@ const LogOut = () => {
 
             // if (res.status === 200) {
                 localStorage.clear();
-                navigate("/login");
+                navigate("/");
             //}
         // } catch (error) {
         //     if (error.response) {
