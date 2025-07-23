@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from './style.module.css';
 import Navbar from '../../Components/Navbar/index';
 import Button from '../../Components/Button/index'
+import Footer from '../../Components/Footer/index'
 import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
@@ -55,9 +56,10 @@ const ProfilePage = () => {
                     <div className='divider'></div>
                     <p><strong>Username:</strong> {info.username}</p>
                     <p><strong>Email:</strong> {info.email}</p>
-                    <Button title="Edit" className={'main-color text-color'} onClickListener={navigate('/editProfile')}/>
+                    <Button title="Edit" className={'main-color text-color'} onClickListener={()=>navigate('/editProfile')}/>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };
