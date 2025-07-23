@@ -4,11 +4,11 @@ import { Smile, Meh, Frown } from 'lucide-react'
 const Message = ({ title, message, media, mood }) => {
 
     let emogi;
-    if(mood == "Happy"){
+    if(mood == "happy"){
         emogi= <Smile/>
-    }else if(mood== "Sad"){
+    }else if(mood== "neutre"){
         emogi= <Meh/>
-    }else if (mood == "Angry"){
+    }else if (mood == "sad" ){
         emogi= <Frown/>
     }
     return (

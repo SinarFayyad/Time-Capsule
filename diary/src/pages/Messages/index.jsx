@@ -25,11 +25,13 @@ const Messages = ({ content }) => {
     loadMessages();
   }, []);
 
+  const message_id = 1;
   return (
-    <div className={styles.container}>
-      { content== "myMessages" && Messages.length === 0 ? (
+
+    <div className={styles.container} onClick={() => navigate(`/viewMessage/${message_id}`)}>
+      {content == "myMessages" && Messages.length === 0 ? (
         <div className={styles.emptyStateContainer}>
-          <Button title="Create your first message" onClickListener={() => {navigate("/addMessage")}} className={`main-color text-color`}/>
+          <Button title="Create your first message" onClickListener={() => { navigate("/addMessage") }} className={`main-color text-color`} />
         </div>
       ) : (
         Messages.map((message) => (

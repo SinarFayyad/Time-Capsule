@@ -11,7 +11,6 @@ const AddMessage = () => {
     
     const [mood, setMood] = useState("");
     const [message, setMessage] = useState("");
-    const [media, setMedia] = useState("");
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [location, setLocation] = useState("");
@@ -25,8 +24,9 @@ const AddMessage = () => {
     const submitForm = async (e) => {
         e.preventDefault();
 
+        console.log(date);
         const res = await axios.post("http://localhost:8000/api/addMessage", {
-            "user_id": {id}, 
+            "user_id":id, 
             "title":title,
             "color":"white",
             "mood":mood,
@@ -49,8 +49,8 @@ const AddMessage = () => {
                             <p>Choose your mood</p>
                             <div className={styles.mood}>
                                 <Smile onClick={() => { setMood("happy") }} className={mood == "happy" && styles.selected} />
-                                <Meh onClick={() => { setMood("sad") }} className={mood == "sad" && styles.selected} />
-                                <Frown onClick={() => { setMood("angry") }} className={mood == "angry" && styles.selected} />
+                                <Meh onClick={() => { setMood("neutre") }} className={mood == "neutre" && styles.selected} />
+                                <Frown onClick={() => { setMood("sad") }} className={mood == "sad" && styles.selected} />
                             </div>
                         </div>
                         <div className='divider'></div>
@@ -80,7 +80,7 @@ const AddMessage = () => {
                             <CalendarFold />
                             <span>Choose the reveal date</span>
                         </div>
-                        <Input type="date"
+                        <Input type="Date"
                             name="revealDate"
                             hint="MM/DD/YYYY"
                             className={`border`}
