@@ -10,12 +10,12 @@ import { Smile, Meh, Frown, Paperclip, Captions, CalendarFold, LocationEdit, Fol
 
 const AddMessage = () => {
 
-    const [errorMessage, setErrorMessage] = useState('');
     const [mood, setMood] = useState("");
-    const [message, setMessage] = useState("");
-    const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
+    const [title, setTitle] = useState("");
+    const [message, setMessage] = useState("");
     const [location, setLocation] = useState("");
+    const [errorMessage, setErrorMessage] = useState('');
     const [privacy, setPrivacy] = useState({
         private: false,
         public: false,
@@ -51,7 +51,7 @@ const AddMessage = () => {
     return (
         <div className={styles.container}>
             <Navbar />
-            <div className={styles.form}>
+            <form className={styles.form}>
                 <div className={styles.leftColumn}>
                     <div className={`${styles.message} border`}>
                         <div className={styles.header}>
@@ -136,7 +136,9 @@ const AddMessage = () => {
                             <label>Unlisted</label>
                         </div>
                     </div>
-                    <Button title="Save message" className={`${styles.btn} main-color text-color`} onClickListener={submitForm} />
+                    <Button title="Save message" 
+                            className={`${styles.btn} main-color text-color`} 
+                            onClickListener={()=>submitForm} />
                 </div>
                 {errorMessage && (
                     <ErrorMessage
@@ -145,7 +147,7 @@ const AddMessage = () => {
                         onClose={() => setErrorMessage('')}
                     />
                 )}
-            </div>
+            </form>
             <Footer />
         </div>
     );
