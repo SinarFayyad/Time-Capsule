@@ -4,14 +4,14 @@ import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import SearchBar from '../../Components/Search'
 import Capsules from '../../pages/Capsules/index'
+import Filtrations from '../../Components/Filtrations'
 
 function MainPage() {
 
   return (
     <div className={styles.page_wrapper}>
       <div className={styles.content_area}>
-        <Navbar />
-        {/* <SearchBar /> */}
+        <Navbar/>
         <div className={styles.main_container}>
           <h2 className={styles.title}>Your messages</h2>
           <div>
@@ -20,6 +20,7 @@ function MainPage() {
           </div>
           <h2 className={styles.title}>World's messages</h2>
           <div>
+            <Filtrations/>
             <Messages content={'allMessages'} />
           </div>
         </div>
