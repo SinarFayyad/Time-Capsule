@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../../Components/Logo/index'
 import Input from '../../Components/Input/index'
 import { Mail, LockKeyhole } from 'lucide-react'
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import Button from '../../Components/Button/index'
 import ErrorMessage from '../../Components/Error Message/index'
 
@@ -13,7 +13,6 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
@@ -33,7 +32,10 @@ const LoginPage = () => {
             }
         } catch (error) {
             if (error.response) {
-                setErrorMessage({ message: error.message, code: error.response.status });
+                <ErrorMessage
+                    message={error.message}
+                    errorCode={error.response.status}
+                />
             }
         }
     };
@@ -71,13 +73,6 @@ const LoginPage = () => {
                             type="submit"
                         />
                     </form>
-                    {errorMessage && (
-                        <ErrorMessage
-                            message={errorMessage.message || errorMessage}
-                            errorCode={errorMessage.code}
-                            onClose={() => setErrorMessage('')}
-                        />
-                    )}
                 </div>
             </div>
             <div className={styles.secondSection}>
