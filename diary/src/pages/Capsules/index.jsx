@@ -27,13 +27,14 @@ const Capsules = ({ content }) => {
 
   return (
     <div className={`${styles.container}`}>
-      {Capsules.length === 0 ? <></>:
-        Capsules.map = ((capsule) => {
-          <Capsule key={capsule.id}
+      {Capsules.length === 0 ? <></> :
+        Capsules.map((capsule) => (
+          <Capsule 
+            key={capsule.id}
             title={capsule.title}
             reveal_date={capsule.reveal_date}
           />
-        })}
+        ))}
       {errorMessage && (
         <ErrorMessage
           message={errorMessage.message || errorMessage}

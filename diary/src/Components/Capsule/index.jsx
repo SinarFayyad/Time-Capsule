@@ -10,6 +10,7 @@ const Capsule = ({ title, reveal_date }) => {
                 </div>
                 <div className='divider'></div>
                 <div className={styles.content}>
+                    <p>Wait till </p>
                     <p className={styles.reveal_date}>{reveal_date}</p>
                 </div>
             </div>
