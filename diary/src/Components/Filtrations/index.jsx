@@ -13,7 +13,6 @@ const Filtrations = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const filter = async (e) => {
-        e.preventDefault();
         try {
             const response = await axios.post('https://localhost:8000/api/filterMessages', {
                 mood: mood,
@@ -46,7 +45,7 @@ const Filtrations = () => {
             <Button
                 title="Filter"
                 className={`main-color text-color`}
-                onClickListener={(e) =>filter}
+                onClickListener={(e) =>filter()}
             />
             {errorMessage && (
                 <ErrorMessage
