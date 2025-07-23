@@ -1,3 +1,4 @@
+import LogOut from '../pages/logOut'
 import MainPage from '../pages/mainPage/index'
 import EditProfile from '../pages/editProfile'
 import Profile from '../pages/profilePage/index'
@@ -12,11 +13,12 @@ const MyRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/mainPage" element={<MainPage />} />
+            <Route path='/logOut' element= {<LogOut/>}/>
+            <Route path='/profile' element={ <Profile/>}/>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/mainPage" element={<MainPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path='/addMessage' element={<AddMessage/>}/>
-            <Route path='/profile' element={ <Profile/>}/>
             <Route path='/editProfile' element={ <EditProfile/>}/>
         </Routes>
     );
