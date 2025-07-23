@@ -1,5 +1,6 @@
 import styles from './style.module.css';
 import Logo from '../Logo/index'
+import Button from '../Button/index'
 import { useNavigate , useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -15,8 +16,10 @@ const Navbar = () => {
             </div>
             {location.pathname !== '/' &&
                 <div className={styles.links}>
+                    <a onClick = {() => {navigate('/mainPage')}}><h3>Home</h3></a>
                     <a onClick = {() => {navigate('/addMessage')}}><h3>Add message</h3></a>
                     <a onClick = {() => {navigate('/profile')}}><h3>Profile</h3></a>
+                    <Button title="Log out" className={'secondary-color text-color'} onClickListener={()=>navigate('/logout')}/>
                 </div>}
         </div>
     );
