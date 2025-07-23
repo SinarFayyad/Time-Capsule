@@ -6,7 +6,7 @@ import axios from 'axios'
 import ErrorMessage from '../../Components/Error Message/index'
 import Button from '../Button/index'
 
-const Filtrations = () => {
+const Filtrations = ({ onFilter }) => {
 
     const [mood, setMood] = useState('');
     const [location, setLocation] = useState('');
@@ -18,6 +18,9 @@ const Filtrations = () => {
                 mood: mood,
                 location: location
             });
+            if (onFilter) {
+                onFilter(response.data.payload);
+            }
         } catch (error) {
             if (error.response) {
                 setErrorMessage({ message: error.message, code: error.response.status });
@@ -27,13 +30,18 @@ const Filtrations = () => {
 
     return (
         <div className={styles.container}>
-            <select className={styles.selectMood} name="mood" defaultValue="">
+            <select
+                className={styles.selectMood}
+                name="mood"
+                defaultValue=""
+                onChange={(e) => setMood(e.target.value)}
+            >
                 <option value="" disabled>
                     Select mood
                 </option>
-                <option value="Happy" onClick={() => setMood("happy")}>Happy</option>
-                <option value="Sad" onClick={() => setMood("sad")}>Sad</option>
-                <option value="Neutral" onClick={() => setMood("neutral")}>Neutral</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="neutral">Neutral</option>
             </select>
             <Input
                 type="text"

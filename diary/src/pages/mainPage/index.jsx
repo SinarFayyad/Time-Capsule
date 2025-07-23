@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styles from './style.module.css'
 import Messages from '../Messages/index'
 import Navbar from '../../Components/Navbar'
@@ -7,6 +8,7 @@ import Capsules from '../../pages/Capsules/index'
 import Filtrations from '../../Components/Filtrations'
 
 function MainPage() {
+  const [filteredMessages, setFilteredMessages] = useState(null);
 
   return (
     <div className={styles.container}>
@@ -21,16 +23,13 @@ function MainPage() {
         </div>
         <h2 className={styles.title}>World's messages</h2>
         <div>
-          <Filtrations />
-          <Messages content={'allMessages'} />
+          <Filtrations onFilter={setFilteredMessages} />
+          <Messages content={'allMessages'} filteredMessages={filteredMessages} />
         </div>
       </div>
       <Footer />
     </div>
-
-
   );
-
 }
 
 export default MainPage

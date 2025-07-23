@@ -6,7 +6,7 @@ import ErrorMessage from "../../Components/Error Message"
 import { useNavigate } from "react-router-dom";
 import styles from './style.module.css'
 
-const Messages = ({ content }) => {
+const Messages = ({ content, filteredMessages }) => {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [Messages, setMessages] = useState([]);
@@ -32,15 +32,19 @@ const Messages = ({ content }) => {
   }
 
   useEffect(() => {
-    loadMessages();
-  }, []);
+    if (!filteredMessages) {
+      loadMessages();
+    }
+  }, [content, filteredMessages]);
+
+  const messagesToRender = filteredMessages || Messages;
 
   return (
 
     <div className={styles.container}>
-      {Messages.length === 0 ?
+      {messagesToRender.length === 0 ?
         (<p>No messages yet</p>) :
-        (Messages.map((message) => (
+        (messagesToRender.map((message) => (
           <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
             key={message.id}
             title={message.title}

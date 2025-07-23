@@ -70,7 +70,7 @@ const AddMessage = () => {
                             <textarea className={styles.textarea} 
                                 placeholder="Write your message" 
                                 onChange={(e) => { setMessage(e.target.value) }}></textarea>
-                            <Paperclip className={styles.paperclip} />
+                            {/* <Paperclip className={styles.paperclip} /> */}
                         </div>
                     </div>
                 </div>
