@@ -10,9 +10,9 @@ const LandingPage = () => {
         <div className={`${styles.container} text-color`}>
             <Navbar />
             <div className={`${styles.circle} main-color`}>
-                <h2 className={styles.headerTitle}>Welcome to</h2>
-                <h1>DEAR FUTURE ME!</h1>
-                <p className={styles.myText}> Here is your place to send your messages to the world and receive messages back!
+                <h2 className={`${styles.headerTitle} text-color`}>Welcome to</h2>
+                <h1 className={`${styles.name} text-color`}>DEAR FUTURE ME!</h1>
+                <p className={`${styles.myText} text-color`}> Here is your place to send your messages to the world and receive messages back!
                     Write your notes, your goals and capsule it.
                     Then let time remind you of the promises you made to yourself!
                 </p>

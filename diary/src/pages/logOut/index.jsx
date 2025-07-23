@@ -14,18 +14,18 @@ const LogOut = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const logOut = async () => {
-        try {
-            const res = await axios(`http://localhost:8000/api/logout`);
+        // try {
+        //     const res = await axios(`http://localhost:8000/api/logout`);
 
-            if (res.status === 200) {
+            // if (res.status === 200) {
                 localStorage.clear();
                 navigate("/login");
-            }
-        } catch (error) {
-            if (error.response) {
-                setErrorMessage({ message: error.message, code: error.response.status });
-            }
-        }
+            //}
+        // } catch (error) {
+        //     if (error.response) {
+        //         setErrorMessage({ message: error.message, code: error.response.status });
+        //     }
+        // }
     }
 
     return (
