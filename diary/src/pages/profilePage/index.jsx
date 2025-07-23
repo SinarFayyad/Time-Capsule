@@ -13,9 +13,8 @@ const ProfilePage = () => {
     const [loading, setLoading] = useState('');
     const [error, setError] = useState('');
 
-    // const id = localStorage.getItem("id");
+    const id = localStorage.getItem("id");
 
-    let id =1;
     const fetchUserData = async () => {
         try {
             const res = await axios.get(`http://localhost:8000/api/user/${id}`);
@@ -32,10 +31,6 @@ const ProfilePage = () => {
             setLoading(false);
         }
     };
-
-    useEffect(() => {
-        fetchUserData();
-    }, []);
 
     if (loading) {
         return (
@@ -62,12 +57,12 @@ const ProfilePage = () => {
                     <div className='divider'></div>
                     <p><strong>Username:</strong> {info.username}</p>
                     <p><strong>Email:</strong> {info.email}</p>
-                    <Button title="Edit" 
-                            className={'main-color text-color'} 
-                            onClickListener={()=>navigate('/editProfile')}/>
+                    <Button title="Edit"
+                        className={'main-color text-color'}
+                        onClickListener={() => navigate('/editProfile')} />
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
