@@ -52,7 +52,7 @@ const LoginPage = () => {
                         <Input type="text"
                             name='email'
                             hint='e.g. JoeDoe@gmail.com'
-                            onChange={(e) => { setEmail(e.target.value) }} />
+                            onChangeListener={(e) => { setEmail(e.target.value) }} />
 
                         <div className={styles.labels}>
                             <LockKeyhole />
@@ -61,7 +61,7 @@ const LoginPage = () => {
                         <Input type='password'
                             name="password"
                             hint='********'
-                            onChange={(e) => { setPassword(e.target.value) }}
+                            onChangeListener={(e) => { setPassword(e.target.value) }}
                         />
                         {/* <a href="">Forget password</a> */}
 

@@ -78,7 +78,7 @@ const SignUpPage = () => {
                         <Input type="text"
                             name='username'
                             hint='e.g. Joe Doe'
-                            onChange={(e) => { setUsername(e.target.value) }} />
+                            onChangeListener={(e) => { setUsername(e.target.value) }} />
 
                         <div className={styles.labels}>
                             <Mail />
@@ -87,7 +87,7 @@ const SignUpPage = () => {
                         <Input type="text"
                             name='email'
                             hint='e.g. JoeDoe@gmail.com'
-                            onChange={(e) => { setEmail(e.target.value) }} />
+                            onChangeListener={(e) => { setEmail(e.target.value) }} />
 
                         <div className={styles.labels}>
                             <LockKeyhole />
@@ -96,7 +96,7 @@ const SignUpPage = () => {
                         <Input type="password"
                             name='password'
                             hint='********'
-                            onChange={(e) => { setPassword(e.target.value) }} />
+                            onChangeListener={(e) => { setPassword(e.target.value) }} />
 
                         <Button
                             title="Sign up "
