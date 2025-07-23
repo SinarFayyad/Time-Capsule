@@ -1,22 +1,24 @@
-.main_container {
-  margin:0;
-  padding:0;
+.container {
   display: flex;
   flex-direction: column;
-  width: 100%
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.page_wrapper {
+.content{
+  width:90%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-.content_area {
-  flex-grow: 1;
+  flex-wrap: wrap;
+  flex-basis: 90%;
 }
 
 .title{
-  margin-left:4em;
   margin-top: 2em;
+}
+
+.subtitle{
+  margin-left:2em;
+  margin-top:0.5em;
 }

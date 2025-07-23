@@ -1,5 +1,5 @@
 .container{
-  min-height:100px;
+  min-height:10px;
   width: 90%;
   margin-top: 2em;
   display: flex;
@@ -12,11 +12,11 @@
   margin-left:6vw;
 }
 
-.emptyStateContainer {
+/* .emptyStateContainer {
   width: 100%;
   height:20px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em 0;
-}
+} */

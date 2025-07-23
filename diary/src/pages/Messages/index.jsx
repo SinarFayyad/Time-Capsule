@@ -37,12 +37,9 @@ const Messages = ({ content }) => {
   return (
 
     <div className={styles.container}>
-      {content == "myMessages" && Messages.length === 0 ? ( // create a condition for both messages and capsules
-        <div className={styles.emptyStateContainer}>
-          <Button title="Create your first message" onClickListener={() => { navigate("/addMessage") }} className={`main-color text-color`} />
-        </div>
-      ) : (
-        Messages.map((message) => (
+      {Messages.length === 0 ?
+        (<p>No messages yet</p>) :
+        (Messages.map((message) => (
           <Message onClick={() => navigate(`/viewMessage/${message_id}`)}
             key={message.id}
             title={message.title}
@@ -50,7 +47,7 @@ const Messages = ({ content }) => {
             media={message.media}
             mood={message.mood} />
         ))
-      )}
+        )}
       {errorMessage && (
         <ErrorMessage
           message={errorMessage.message || errorMessage}
