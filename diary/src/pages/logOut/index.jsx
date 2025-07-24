@@ -15,7 +15,7 @@ const LogOut = () => {
 
     const logOut = async () => {
         // try {
-        //     const res = await axios(`http://localhost:8000/api/logout`);
+        //     const res = await axios(`http://localhost:8000/api/v0.1/logout`);
 
             // if (res.status === 200) {
                 localStorage.clear();

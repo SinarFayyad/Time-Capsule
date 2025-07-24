@@ -15,7 +15,7 @@ function MainPage() {
   useEffect(() => {
     const fetchAllMessages = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/messages");
+        const res = await axios.get("http://localhost:8000/api/v0.1/messages");
         setAllMessages(res.data.payload);
       } catch (error) {
         console.error("Failed to fetch all messages", error);

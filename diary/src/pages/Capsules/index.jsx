@@ -12,7 +12,7 @@ const Capsules = ({ content }) => {
   const loadCapsules = async () => {
     try {
       const user_id = localStorage.getItem("id");
-      const res = await axios.get(`http://localhost:8000/api/getCapsules/${user_id}`);
+      const res = await axios.get(`http://localhost:8000/api/v0.1/getCapsules/${user_id}`);
       setCapsules(res.data.payload);
     } catch (error) {
       if (error.response) {

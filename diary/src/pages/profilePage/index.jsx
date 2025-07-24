@@ -17,7 +17,7 @@ const ProfilePage = () => {
 
         const id = localStorage.getItem("id");
         try {
-            const res = await axios.get(`http://localhost:8000/api/user/${id}`);
+            const res = await axios.get(`http://localhost:8000/api/v0.1/user/${id}`);
             info = setInfo(res.data.payload);
             setLoading(false);
 

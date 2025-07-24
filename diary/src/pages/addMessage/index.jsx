@@ -26,7 +26,7 @@ const AddMessage = () => {
     const submitForm = async (e) => {
 
         try {
-            const res = await axios.post("http://localhost:8000/api/addMessage", {
+            const res = await axios.post("http://localhost:8000/api/v0.1/addMessage", {
                 "user_id": id,
                 "title": title,
                 "color": "white",

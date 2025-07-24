@@ -17,11 +17,11 @@ const Messages = ({ content, filteredMessages }) => {
       if (content == "myMessages") {
 
         const id = localStorage.getItem("id");
-        const res = await axios.get(`http://localhost:8000/api/messages/${id}`);
+        const res = await axios.get(`http://localhost:8000/api/v0.1/messages/${id}`);
         
         setMessages(res.data.payload);
       } else if (content == "allMessages") {
-        const res = await axios.get("http://localhost:8000/api/messages")
+        const res = await axios.get("http://localhost:8000/api/v0.1/messages")
         setMessages(res.data.payload);
       }
     } catch (error) {

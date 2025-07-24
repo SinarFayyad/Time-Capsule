@@ -31,7 +31,7 @@ const ViewMessage = () => {
         try {
             const splitted = location.pathname.split('/');
             const message_id = splitted[splitted.length - 1];
-            const res = await axios.get(`http://localhost:8000/api/message/${message_id}`);
+            const res = await axios.get(`http://localhost:8000/api/v0.1/message/${message_id}`);
             if (res.status === 200) {
                 info = setInfo(res.data.payload);
             }

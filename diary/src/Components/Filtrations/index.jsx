@@ -34,7 +34,6 @@ const Filtrations = ({ allMessages, onFilter }) => {
     if (mood !== '' || location !== '') {
       filter();
     } else {
-      // If no filters, show all messages
       if (onFilter) {
         onFilter(allMessages);
       }
