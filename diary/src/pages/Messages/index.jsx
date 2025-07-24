@@ -36,7 +36,7 @@ const Messages = ({ content, filteredMessages }) => {
     }
   }, [content, filteredMessages]);
 
-  const messages = filteredMessages || Messages;
+  const messages = (filteredMessages || Messages).slice().sort((a, b) => b.id - a.id);
 
   if (content === "myMessages") {
     return (
