@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Message from "../../Components/Message/index";
-import Button from "../../Components/Button/index";
+import { ChevronRight } from "lucide-react";
 import ErrorMessage from "../../Components/Error Message"
 import { useNavigate } from "react-router-dom";
 import styles from './style.module.css'
@@ -39,29 +39,57 @@ const Messages = ({ content, filteredMessages }) => {
 
   const messages = filteredMessages || Messages;
 
-  return (
-
-    <div className={styles.container}>
-      {messages.length === 0 ?
-        (<p>No messages yet</p>) :
-        (messages.map((message) => (
-          <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
-            key={message.id}
-            title={message.title}
-            message={message.message}
-            media={message.media}
-            mood={message.mood} />
-        ))
+  if (content === "myMessages") {
+    return (
+      <div className={styles.scrollContainer}>
+        {messages.length === 0 ?
+          (<p>No messages yet</p>) :
+          (messages.map((message) => (
+            <div className={styles.messageWrapper} key={message.id}>
+              <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
+                title={message.title}
+                message={message.message}
+                media={message.media}
+                mood={message.mood} />
+            </div>
+          ))
+          )}
+        <div className={styles.scrollIcon}>
+          <ChevronRight />
+        </div>
+        {errorMessage && (
+          <ErrorMessage
+            message={errorMessage.message || errorMessage}
+            errorCode={errorMessage.code}
+            onClose={() => setErrorMessage('')}
+          />
         )}
-      {errorMessage && (
-        <ErrorMessage
-          message={errorMessage.message || errorMessage}
-          errorCode={errorMessage.code}
-          onClose={() => setErrorMessage('')}
-        />
-      )}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.container}>
+        {messages.length === 0 ?
+          (<p>No messages yet</p>) :
+          (messages.map((message) => (
+            <Message onClick={() => navigate(`/viewMessage/${message.id}`)}
+              key={message.id}
+              title={message.title}
+              message={message.message}
+              media={message.media}
+              mood={message.mood} />
+          ))
+          )}
+        {errorMessage && (
+          <ErrorMessage
+            message={errorMessage.message || errorMessage}
+            errorCode={errorMessage.code}
+            onClose={() => setErrorMessage('')}
+          />
+        )}
+      </div>
+    );
+  }
 };
 
 export default Messages;
