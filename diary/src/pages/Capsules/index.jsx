@@ -13,7 +13,8 @@ const Capsules = ({ content }) => {
     try {
       const user_id = localStorage.getItem("id");
       const res = await axios.get(`http://localhost:8000/api/v0.1/getCapsules/${user_id}`);
-      setCapsules(res.data.payload);
+      const sortedCapsules = res.data.payload.sort((a, b) => new Date(a.reveal_date) - new Date(b.reveal_date));
+      setCapsules(sortedCapsules);
     } catch (error) {
       if (error.response) {
         setErrorMessage({ message: error.message, code: error.response.status });

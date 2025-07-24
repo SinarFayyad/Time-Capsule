@@ -56,7 +56,7 @@ const EditProfile = () => {
                                 required={false}
                                 onChangeListener={(e) => { setUsername(e.target.value) }} />
                         </div>
-                        <div className={styles.labels}>
+                        {/* <div className={styles.labels}>
                             <label>Email</label>
 
                             <Input type="text"
@@ -64,7 +64,7 @@ const EditProfile = () => {
                                 hint='e.g. JoeDoe@gmail.com'
                                 required={false}
                                 onChangeListener={(e) => { setEmail(e.target.value) }} />
-                        </div>
+                        </div> */}
                         <Button
                             title="Save"
                             className={`main-color text-color`}
