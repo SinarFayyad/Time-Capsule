@@ -1,12 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
-
     const navigate = useNavigate();
-    
-    if(!localStorage.getItem("id")){
-        navigate("/signup");
-    }
-}
 
-export default ProtectedRoute
+    useEffect(() => {
+        if (!localStorage.getItem("id")) {
+            navigate("/signup");
+        }
+    }, [navigate]);
+
+    return <Outlet />;
+};
+
+export default ProtectedRoute;
