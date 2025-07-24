@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import Message from "../../Components/Message/index";
-import { ChevronRight } from "lucide-react";
 import ErrorMessage from "../../Components/Error Message"
 import { useNavigate } from "react-router-dom";
 import styles from './style.module.css'
@@ -58,9 +57,6 @@ const Messages = ({ content, filteredMessages }) => {
             </div>
           ))
           )}
-        <div className={styles.scrollIcon}>
-          <ChevronRight />
-        </div>
         {errorMessage && (
           <ErrorMessage
             message={errorMessage.message || errorMessage}
