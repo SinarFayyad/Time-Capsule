@@ -19,10 +19,14 @@ const Messages = ({ content, filteredMessages }) => {
         const id = localStorage.getItem("id");
         const res = await axios.get(`http://localhost:8000/api/v0.1/messages/${id}`);
         
-        setMessages(res.data.payload);
+        // Sort messages by id descending
+        const sortedMessages = res.data.payload.sort((a, b) => b.id - a.id);
+        setMessages(sortedMessages);
       } else if (content == "allMessages") {
         const res = await axios.get("http://localhost:8000/api/v0.1/messages")
-        setMessages(res.data.payload);
+        // Sort messages by id descending
+        const sortedMessages = res.data.payload.sort((a, b) => b.id - a.id);
+        setMessages(sortedMessages);
       }
     } catch (error) {
       if (error.response) {
