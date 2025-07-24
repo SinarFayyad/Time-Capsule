@@ -17,15 +17,11 @@ const Messages = ({ content, filteredMessages }) => {
 
         const id = localStorage.getItem("id");
         const res = await axios.get(`http://localhost:8000/api/v0.1/messages/${id}`);
-        
-        // Sort messages by id descending
-        const sortedMessages = res.data.payload.sort((a, b) => b.id - a.id);
-        setMessages(sortedMessages);
+
+        setMessages(res.data.payload);
       } else if (content == "allMessages") {
         const res = await axios.get("http://localhost:8000/api/v0.1/messages")
-        // Sort messages by id descending
-        const sortedMessages = res.data.payload.sort((a, b) => b.id - a.id);
-        setMessages(sortedMessages);
+        setMessages(res.data.payload);
       }
     } catch (error) {
       if (error.response) {
