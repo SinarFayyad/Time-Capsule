@@ -11,13 +11,13 @@ const Filtrations = ({ allMessages, onFilter }) => {
 
   const filter = () => {
     try {
-      let filtered = allMessages;
+      let filtered ;
 
       if (mood !== '') {
-        filtered = filtered.filter((msg) => msg.mood === mood);
+        filtered = allMessages.filter((msg) => msg.mood === mood);
       }
       if (location !== '') {
-        filtered = filtered.filter((msg) =>
+        filtered = allMessages.filter((msg) =>
           msg.location.toLowerCase().includes(location.toLowerCase())
         );
       }
