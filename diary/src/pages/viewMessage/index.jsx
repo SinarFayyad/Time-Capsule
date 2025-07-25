@@ -12,9 +12,9 @@ const MoodEmoji = ({ mood }) => {
     switch (mood) {
         case 'happy':
             return <Smile />
-        case 'sad':
+        case 'neutral':
             return <Meh />
-        case 'angry':
+        case 'sad':
             return <Frown />
         default:
             return null
